@@ -1,0 +1,62 @@
+table dim_fecha
+	lineageTag: 391a52fb-c46c-5324-a207-9ee8158ccfde
+
+	column fecha
+		dataType: dateTime
+		formatString: dd-mm-yyyy
+		lineageTag: 301c78a4-46fa-5f22-b8f5-32bc3b11ec0f
+		summarizeBy: none
+		sourceColumn: fecha
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: c9b5eb36-7fa8-59a2-95fc-52ad9ff910fa
+		summarizeBy: none
+		sourceColumn: anio
+
+	column mes_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c5e91fa-ea9c-586a-b351-f7e61873ad6a
+		summarizeBy: none
+		sourceColumn: mes_num
+
+	column mes
+		dataType: string
+		lineageTag: cb430dbb-2a65-523f-92c8-d3980539455f
+		summarizeBy: none
+		sourceColumn: mes
+
+	column trimestre
+		dataType: string
+		lineageTag: c52cd3e2-d47f-57c7-a992-c5d5fa42aed7
+		summarizeBy: none
+		sourceColumn: trimestre
+
+	column dia_semana
+		dataType: string
+		sortByColumn: dia_semana_num
+		lineageTag: 9aeee86b-1192-5515-add3-f2fef4b857fc
+		summarizeBy: none
+		sourceColumn: dia_semana
+
+	column dia_semana_num
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: cfbdfd27-e597-5ae6-a23a-f3532b2e054d
+		summarizeBy: none
+		sourceColumn: dia_semana_num
+
+	partition dim_fecha = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_fecha.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"fecha", type datetime}, {"anio", Int64.Type}, {"mes_num", Int64.Type}, {"mes", type text}, {"trimestre", type text}, {"dia_semana", type text}, {"dia_semana_num", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,13 @@
+{
+  "ejecutado": "2026-11-22T17:51:33",
+  "filas": {
+    "dim_usuarios": 500,
+    "dim_publicaciones": 500,
+    "dim_campanas": 500,
+    "dim_fecha": 730,
+    "fact_interacciones": 999,
+    "puente_publicacion_hashtag": 1018,
+    "puente_campana_publicacion": 1487,
+    "agg_hashtags_categoria": 25
+  }
+}

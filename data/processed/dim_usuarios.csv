@@ -1,0 +1,501 @@
+﻿usuario_id,pais,genero,fecha_registro,dispositivo,dominio_correo,tipo_correo,antiguedad_dias,cohorte_registro
+user_1,Senegal,Masculino,2025-04-17 14:19:46,Desktop,cobb-garcia.com,Corporativo,88,2025Q2
+user_2,South Africa,Otro,2024-07-25 11:06:07,Tablet,gmail.com,Personal,354,2024Q3
+user_3,Portugal,Femenino,2024-06-26 00:14:30,Tablet,sherman.com,Corporativo,383,2024Q2
+user_4,Anguilla,Otro,2024-01-04 07:05:37,Tablet,yahoo.com,Personal,557,2024Q1
+user_5,Kazakhstan,Femenino,2024-12-20 13:46:42,Desktop,hotmail.com,Personal,206,2024Q4
+user_6,Cameroon,Otro,2024-10-12 09:52:45,Desktop,rosales.com,Corporativo,275,2024Q4
+user_7,Norway,Otro,2023-11-14 16:42:31,Desktop,yahoo.com,Personal,608,2023Q4
+user_8,China,Femenino,2024-07-26 13:20:17,Tablet,yahoo.com,Personal,353,2024Q3
+user_9,Netherlands,Femenino,2025-03-11 22:11:32,Tablet,yahoo.com,Personal,125,2025Q1
+user_10,Tajikistan,Femenino,2025-02-15 06:11:04,Móvil,gmail.com,Personal,149,2025Q1
+user_11,Marshall Islands,Masculino,2025-05-04 04:49:34,Tablet,garcia.net,Corporativo,71,2025Q2
+user_12,Portugal,Masculino,2024-12-03 02:52:45,Desktop,scott.com,Corporativo,223,2024Q4
+user_13,United Kingdom,Otro,2023-10-27 13:50:41,Desktop,davis-lee.com,Corporativo,626,2023Q4
+user_14,Ghana,Masculino,2025-03-21 05:55:17,Tablet,gmail.com,Personal,115,2025Q1
+user_15,Jersey,Otro,2025-05-15 11:44:59,Tablet,lewis.org,Corporativo,60,2025Q2
+user_16,Greenland,Masculino,2024-08-13 15:34:48,Tablet,guzman-vasquez.com,Corporativo,335,2024Q3
+user_17,Libyan Arab Jamahiriya,Masculino,2023-07-21 16:26:40,Desktop,garrett-rodriguez.com,Corporativo,724,2023Q3
+user_18,Northern Mariana Islands,Femenino,2024-12-31 04:47:46,Móvil,davis-atkins.com,Corporativo,195,2024Q4
+user_19,Montenegro,Otro,2024-12-19 11:50:22,Móvil,kennedy.com,Corporativo,207,2024Q4
+user_20,Denmark,Otro,2024-02-05 18:56:01,Desktop,zavala.com,Corporativo,525,2024Q1
+user_21,Albania,Masculino,2025-02-27 15:48:55,Tablet,parker-elliott.biz,Corporativo,137,2025Q1
+user_22,Anguilla,Femenino,2024-03-22 14:35:38,Móvil,harris.com,Corporativo,479,2024Q1
+user_23,Saint Kitts and Nevis,Masculino,2024-07-23 04:53:13,Desktop,rodriguez-sanchez.com,Corporativo,356,2024Q3
+user_24,Honduras,Otro,2023-08-31 16:41:57,Desktop,wright-benitez.org,Corporativo,683,2023Q3
+user_25,Burkina Faso,Masculino,2025-05-30 19:10:58,Tablet,yahoo.com,Personal,45,2025Q2
+user_26,Cook Islands,Masculino,2024-09-25 00:20:34,Móvil,hotmail.com,Personal,292,2024Q3
+user_27,Rwanda,Femenino,2025-02-09 15:59:52,Desktop,hotmail.com,Personal,155,2025Q1
+user_28,Guyana,Femenino,2024-03-31 06:44:56,Desktop,yahoo.com,Personal,470,2024Q1
+user_29,Bahamas,Femenino,2024-08-17 12:12:11,Desktop,shaffer-yates.net,Corporativo,331,2024Q3
+user_30,Bangladesh,Masculino,2025-02-06 01:47:31,Móvil,hotmail.com,Personal,158,2025Q1
+user_31,Pakistan,Masculino,2023-12-11 21:21:13,Tablet,berry.org,Corporativo,581,2023Q4
+user_32,Pakistan,Femenino,2024-03-29 06:36:17,Móvil,gmail.com,Personal,472,2024Q1
+user_33,Switzerland,Femenino,2024-05-14 12:06:06,Desktop,hotmail.com,Personal,426,2024Q2
+user_34,Kuwait,Masculino,2024-12-05 07:10:38,Móvil,hotmail.com,Personal,221,2024Q4
+user_35,Cocos (Keeling) Islands,Otro,2023-10-02 23:48:02,Desktop,yahoo.com,Personal,651,2023Q4
+user_36,Central African Republic,Masculino,2024-06-10 04:10:25,Móvil,barrett.com,Corporativo,399,2024Q2
+user_37,Kenya,Otro,2025-05-20 10:56:12,Desktop,flowers.com,Corporativo,55,2025Q2
+user_38,Namibia,Masculino,2025-04-09 06:19:23,Móvil,yahoo.com,Personal,96,2025Q2
+user_39,Israel,Femenino,2023-12-11 23:06:00,Desktop,yang-howard.com,Corporativo,581,2023Q4
+user_40,Hong Kong,Otro,2025-03-31 15:37:57,Desktop,gmail.com,Personal,105,2025Q1
+user_41,Reunion,Otro,2023-09-20 05:14:35,Desktop,gmail.com,Personal,663,2023Q3
+user_42,Algeria,Femenino,2023-10-24 00:04:58,Desktop,boone.org,Corporativo,629,2023Q4
+user_43,Italy,Femenino,2023-11-27 13:05:42,Tablet,guerrero.com,Corporativo,595,2023Q4
+user_44,Nigeria,Otro,2024-05-01 11:36:35,Móvil,jimenez.biz,Corporativo,439,2024Q2
+user_45,Serbia,Masculino,2024-10-23 11:56:29,Tablet,wiggins.biz,Corporativo,264,2024Q4
+user_46,Lebanon,Otro,2024-07-11 08:37:05,Desktop,gmail.com,Personal,368,2024Q3
+user_47,Paraguay,Femenino,2025-01-23 00:02:18,Tablet,douglas-diaz.org,Corporativo,172,2025Q1
+user_48,Saint Barthelemy,Femenino,2024-05-25 07:02:58,Móvil,perez.com,Corporativo,415,2024Q2
+user_49,Kyrgyz Republic,Otro,2024-12-16 18:01:09,Desktop,hotmail.com,Personal,210,2024Q4
+user_50,Morocco,Masculino,2025-02-07 14:38:13,Tablet,gmail.com,Personal,157,2025Q1
+user_51,Cambodia,Otro,2024-11-20 13:19:35,Tablet,gmail.com,Personal,236,2024Q4
+user_52,Comoros,Femenino,2024-11-15 23:00:42,Desktop,yahoo.com,Personal,241,2024Q4
+user_53,Uzbekistan,Masculino,2024-04-03 15:37:11,Desktop,wilson-ramirez.net,Corporativo,467,2024Q2
+user_54,Serbia,Femenino,2024-08-22 19:10:27,Tablet,yahoo.com,Personal,326,2024Q3
+user_55,Brunei Darussalam,Masculino,2025-05-24 22:34:16,Tablet,martinez.com,Corporativo,51,2025Q2
+user_56,Congo,Femenino,2025-02-05 06:45:00,Tablet,lee.com,Corporativo,159,2025Q1
+user_57,Czech Republic,Femenino,2025-05-01 14:03:50,Tablet,moore-becker.org,Corporativo,74,2025Q2
+user_58,French Polynesia,Masculino,2024-05-14 08:50:15,Móvil,yahoo.com,Personal,426,2024Q2
+user_59,El Salvador,Otro,2025-01-16 19:23:16,Móvil,gmail.com,Personal,179,2025Q1
+user_60,India,Otro,2025-03-18 08:53:15,Tablet,carson-duran.com,Corporativo,118,2025Q1
+user_61,Costa Rica,Otro,2024-06-25 00:10:52,Desktop,martinez-singh.com,Corporativo,384,2024Q2
+user_62,Mauritania,Otro,2025-02-12 15:49:55,Tablet,guerrero.com,Corporativo,152,2025Q1
+user_63,Bouvet Island (Bouvetoya),Masculino,2024-11-14 13:11:08,Tablet,yahoo.com,Personal,242,2024Q4
+user_64,Netherlands Antilles,Otro,2024-10-23 21:59:55,Móvil,hotmail.com,Personal,264,2024Q4
+user_65,Tonga,Masculino,2025-03-05 15:46:46,Tablet,gmail.com,Personal,131,2025Q1
+user_66,American Samoa,Otro,2023-10-03 04:10:18,Tablet,gmail.com,Personal,650,2023Q4
+user_67,Malaysia,Masculino,2025-05-22 16:15:49,Tablet,freeman.org,Corporativo,53,2025Q2
+user_68,Italy,Otro,2025-04-09 20:56:25,Móvil,carpenter-fletcher.org,Corporativo,96,2025Q2
+user_69,Wallis and Futuna,Femenino,2024-05-21 07:07:29,Tablet,gmail.com,Personal,419,2024Q2
+user_70,Saint Lucia,Masculino,2024-07-05 07:01:35,Móvil,garcia-knapp.com,Corporativo,374,2024Q3
+user_71,Slovenia,Otro,2023-08-22 17:59:37,Tablet,yahoo.com,Personal,692,2023Q3
+user_72,Tanzania,Masculino,2024-08-07 20:34:46,Móvil,morris.com,Corporativo,341,2024Q3
+user_73,Cook Islands,Femenino,2024-02-07 04:57:13,Móvil,sullivan.biz,Corporativo,523,2024Q1
+user_74,Bouvet Island (Bouvetoya),Masculino,2023-12-11 00:53:27,Tablet,gmail.com,Personal,581,2023Q4
+user_75,Bermuda,Otro,2023-09-24 22:46:58,Desktop,gmail.com,Personal,659,2023Q3
+user_76,Burkina Faso,Masculino,2024-05-10 20:21:02,Tablet,yahoo.com,Personal,430,2024Q2
+user_77,Ecuador,Otro,2024-09-14 06:10:32,Desktop,gmail.com,Personal,303,2024Q3
+user_78,Togo,Femenino,2024-11-03 03:34:16,Tablet,cain.com,Corporativo,253,2024Q4
+user_79,San Marino,Masculino,2024-02-04 17:31:22,Desktop,ross.biz,Corporativo,526,2024Q1
+user_80,Mauritania,Masculino,2024-04-18 23:17:55,Desktop,yahoo.com,Personal,452,2024Q2
+user_81,Denmark,Femenino,2025-01-25 22:42:25,Móvil,erickson.org,Corporativo,170,2025Q1
+user_82,Bahrain,Femenino,2023-11-26 16:59:05,Móvil,montgomery-crawford.biz,Corporativo,596,2023Q4
+user_83,Pitcairn Islands,Otro,2024-04-16 21:40:38,Desktop,gmail.com,Personal,454,2024Q2
+user_84,Georgia,Femenino,2024-09-06 19:22:36,Desktop,andersen.info,Corporativo,311,2024Q3
+user_85,Germany,Masculino,2025-05-16 17:28:56,Móvil,hotmail.com,Personal,59,2025Q2
+user_86,Malta,Masculino,2024-06-01 23:05:37,Tablet,gmail.com,Personal,408,2024Q2
+user_87,Reunion,Masculino,2024-12-29 22:51:38,Desktop,wilson.org,Corporativo,197,2024Q4
+user_88,Bermuda,Masculino,2023-12-06 23:31:13,Móvil,mann.info,Corporativo,586,2023Q4
+user_89,Bahamas,Femenino,2024-12-27 21:35:31,Móvil,smith-obrien.net,Corporativo,199,2024Q4
+user_90,Norfolk Island,Masculino,2024-11-09 20:51:14,Desktop,elliott.com,Corporativo,247,2024Q4
+user_91,Vietnam,Femenino,2024-09-06 04:21:16,Tablet,hernandez.com,Corporativo,311,2024Q3
+user_92,Chad,Masculino,2025-06-14 20:28:06,Móvil,hotmail.com,Personal,30,2025Q2
+user_93,Slovenia,Otro,2024-06-28 13:04:40,Desktop,yahoo.com,Personal,381,2024Q2
+user_94,Sudan,Masculino,2025-05-01 20:49:22,Móvil,williams-brown.info,Corporativo,74,2025Q2
+user_95,Norway,Otro,2023-12-19 16:35:57,Móvil,hart.net,Corporativo,573,2023Q4
+user_96,Liechtenstein,Femenino,2023-08-04 03:15:15,Desktop,gmail.com,Personal,710,2023Q3
+user_97,Comoros,Masculino,2023-09-23 21:31:44,Desktop,gmail.com,Personal,660,2023Q3
+user_98,Guinea,Masculino,2024-09-06 07:35:42,Desktop,rasmussen.com,Corporativo,311,2024Q3
+user_99,Rwanda,Femenino,2024-03-21 09:58:28,Desktop,bryant.com,Corporativo,480,2024Q1
+user_100,Christmas Island,Femenino,2024-05-14 11:30:37,Móvil,wilson.com,Corporativo,426,2024Q2
+user_101,Costa Rica,Masculino,2025-05-29 02:45:19,Móvil,scott.com,Corporativo,46,2025Q2
+user_102,El Salvador,Masculino,2024-10-24 18:10:50,Tablet,kirby-lopez.info,Corporativo,263,2024Q4
+user_103,Brazil,Otro,2023-10-14 03:53:55,Móvil,hotmail.com,Personal,639,2023Q4
+user_104,Saint Barthelemy,Femenino,2025-01-06 11:03:04,Tablet,hotmail.com,Personal,189,2025Q1
+user_105,Zambia,Otro,2023-09-21 19:29:15,Desktop,gmail.com,Personal,662,2023Q3
+user_106,Belize,Masculino,2025-02-27 21:45:20,Desktop,johnson.com,Corporativo,137,2025Q1
+user_107,Seychelles,Masculino,2023-08-17 12:12:59,Desktop,hotmail.com,Personal,697,2023Q3
+user_108,Guernsey,Femenino,2024-07-09 11:55:05,Tablet,villarreal-king.com,Corporativo,370,2024Q3
+user_109,Bangladesh,Femenino,2025-05-01 17:29:05,Móvil,lee.info,Corporativo,74,2025Q2
+user_110,Heard Island and McDonald Islands,Femenino,2023-08-15 11:20:28,Móvil,ferguson.com,Corporativo,699,2023Q3
+user_111,British Indian Ocean Territory (Chagos Archipelago),Femenino,2025-05-12 06:38:51,Tablet,hotmail.com,Personal,63,2025Q2
+user_112,United States Minor Outlying Islands,Masculino,2025-02-16 15:58:41,Móvil,newman.info,Corporativo,148,2025Q1
+user_113,Martinique,Femenino,2025-05-29 16:59:01,Tablet,yahoo.com,Personal,46,2025Q2
+user_114,Cambodia,Otro,2023-08-18 16:14:03,Tablet,singh-reynolds.com,Corporativo,696,2023Q3
+user_115,Kuwait,Masculino,2025-02-05 07:26:21,Móvil,clark-sullivan.biz,Corporativo,159,2025Q1
+user_116,Ecuador,Otro,2024-01-01 03:22:05,Tablet,gmail.com,Personal,560,2024Q1
+user_117,Holy See (Vatican City State),Masculino,2024-11-27 19:59:04,Desktop,yahoo.com,Personal,229,2024Q4
+user_118,Cook Islands,Otro,2024-01-01 07:26:51,Desktop,gmail.com,Personal,560,2024Q1
+user_119,Hungary,Femenino,2024-09-29 07:55:26,Móvil,gmail.com,Personal,288,2024Q3
+user_120,Ecuador,Otro,2025-05-20 20:12:26,Tablet,hernandez.info,Corporativo,55,2025Q2
+user_121,Timor-Leste,Masculino,2023-09-24 11:41:12,Móvil,mora.com,Corporativo,659,2023Q3
+user_122,Guadeloupe,Femenino,2025-01-13 03:04:05,Tablet,blankenship.info,Corporativo,182,2025Q1
+user_123,Portugal,Masculino,2025-05-05 06:43:14,Móvil,ortiz.com,Corporativo,70,2025Q2
+user_124,Lesotho,Otro,2023-11-26 00:31:12,Desktop,beard.biz,Corporativo,596,2023Q4
+user_125,Uganda,Otro,2023-08-01 01:06:31,Desktop,yahoo.com,Personal,713,2023Q3
+user_126,Niger,Masculino,2024-03-05 17:18:27,Móvil,gmail.com,Personal,496,2024Q1
+user_127,Israel,Femenino,2023-11-24 22:27:48,Tablet,terrell.org,Corporativo,598,2023Q4
+user_128,Estonia,Femenino,2024-06-29 07:38:06,Tablet,banks.com,Corporativo,380,2024Q2
+user_129,Algeria,Masculino,2025-02-06 05:39:33,Móvil,hotmail.com,Personal,158,2025Q1
+user_130,Faroe Islands,Masculino,2025-01-07 21:17:33,Desktop,hotmail.com,Personal,188,2025Q1
+user_131,Saint Helena,Femenino,2024-02-04 19:18:22,Tablet,yahoo.com,Personal,526,2024Q1
+user_132,Ukraine,Femenino,2023-10-12 19:13:05,Tablet,hotmail.com,Personal,641,2023Q4
+user_133,Saint Kitts and Nevis,Femenino,2023-07-27 01:37:40,Desktop,solis.com,Corporativo,718,2023Q3
+user_134,New Caledonia,Otro,2023-10-19 08:47:44,Móvil,welch-rivera.com,Corporativo,634,2023Q4
+user_135,Cote d'Ivoire,Otro,2023-08-24 10:59:44,Tablet,hamilton.com,Corporativo,690,2023Q3
+user_136,Saint Martin,Femenino,2024-12-22 19:28:37,Móvil,jacobs-lopez.com,Corporativo,204,2024Q4
+user_137,Reunion,Masculino,2023-10-20 22:40:23,Tablet,humphrey.com,Corporativo,633,2023Q4
+user_138,French Polynesia,Otro,2024-10-25 20:43:56,Tablet,hotmail.com,Personal,262,2024Q4
+user_139,Tuvalu,Masculino,2024-12-28 12:53:43,Desktop,hotmail.com,Personal,198,2024Q4
+user_140,Peru,Masculino,2025-03-01 09:01:57,Desktop,harvey.com,Corporativo,135,2025Q1
+user_141,Korea,Otro,2024-04-19 18:39:17,Móvil,chung.com,Corporativo,451,2024Q2
+user_142,Chile,Masculino,2023-08-18 18:55:46,Tablet,hotmail.com,Personal,696,2023Q3
+user_143,Cape Verde,Otro,2023-11-03 23:34:14,Desktop,yahoo.com,Personal,619,2023Q4
+user_144,Canada,Femenino,2024-10-19 04:06:12,Móvil,smith-moody.com,Corporativo,268,2024Q4
+user_145,India,Otro,2023-11-16 14:11:02,Tablet,yahoo.com,Personal,606,2023Q4
+user_146,Papua New Guinea,Femenino,2023-09-01 00:58:06,Tablet,graham-york.info,Corporativo,682,2023Q3
+user_147,Israel,Femenino,2024-07-31 14:39:52,Tablet,gmail.com,Personal,348,2024Q3
+user_148,Malta,Femenino,2024-02-20 13:53:48,Tablet,gmail.com,Personal,510,2024Q1
+user_149,Cote d'Ivoire,Femenino,2024-03-25 23:46:25,Desktop,west.com,Corporativo,476,2024Q1
+user_150,Congo,Masculino,2023-10-23 08:52:53,Tablet,hotmail.com,Personal,630,2023Q4
+user_151,Hungary,Femenino,2025-02-18 07:33:07,Desktop,harrison.com,Corporativo,146,2025Q1
+user_152,Rwanda,Masculino,2023-11-04 18:13:14,Desktop,yahoo.com,Personal,618,2023Q4
+user_153,Libyan Arab Jamahiriya,Otro,2024-03-16 15:28:29,Desktop,hoffman-bowers.com,Corporativo,485,2024Q1
+user_154,Egypt,Masculino,2025-03-21 18:50:36,Tablet,mills.com,Corporativo,115,2025Q1
+user_155,Pakistan,Masculino,2024-11-27 19:45:54,Tablet,gmail.com,Personal,229,2024Q4
+user_156,Vietnam,Masculino,2024-02-14 02:20:00,Tablet,wheeler.com,Corporativo,516,2024Q1
+user_157,British Virgin Islands,Femenino,2023-08-26 08:11:53,Móvil,gmail.com,Personal,688,2023Q3
+user_158,Oman,Masculino,2024-03-24 04:35:35,Tablet,yahoo.com,Personal,477,2024Q1
+user_159,Vanuatu,Masculino,2023-09-07 08:36:06,Desktop,brown.com,Corporativo,676,2023Q3
+user_160,Lithuania,Otro,2024-05-22 17:55:51,Tablet,miller-cooper.com,Corporativo,418,2024Q2
+user_161,Kiribati,Otro,2023-11-17 04:03:19,Desktop,gmail.com,Personal,605,2023Q4
+user_162,Lesotho,Femenino,2023-08-18 13:15:02,Tablet,day.com,Corporativo,696,2023Q3
+user_163,Mayotte,Masculino,2023-09-07 09:50:54,Tablet,cannon.biz,Corporativo,676,2023Q3
+user_164,Madagascar,Otro,2025-06-13 13:40:46,Móvil,yahoo.com,Personal,31,2025Q2
+user_165,Equatorial Guinea,Otro,2024-04-01 10:13:11,Móvil,moore-harris.org,Corporativo,469,2024Q2
+user_166,Paraguay,Otro,2024-08-17 03:41:32,Desktop,hotmail.com,Personal,331,2024Q3
+user_167,Senegal,Otro,2024-10-01 12:22:55,Móvil,gmail.com,Personal,286,2024Q4
+user_168,Georgia,Femenino,2023-07-26 05:22:01,Desktop,zamora.com,Corporativo,719,2023Q3
+user_169,Netherlands Antilles,Otro,2025-02-21 03:53:50,Desktop,yahoo.com,Personal,143,2025Q1
+user_170,Timor-Leste,Femenino,2023-08-09 20:33:45,Móvil,gmail.com,Personal,705,2023Q3
+user_171,Jamaica,Otro,2025-02-11 19:58:27,Móvil,brown.com,Corporativo,153,2025Q1
+user_172,Uruguay,Masculino,2024-11-22 04:05:03,Desktop,baker.com,Corporativo,234,2024Q4
+user_173,Korea,Femenino,2025-05-22 05:02:51,Móvil,gmail.com,Personal,53,2025Q2
+user_174,Antarctica (the territory South of 60 deg S),Femenino,2023-08-14 11:41:16,Móvil,lewis.biz,Corporativo,700,2023Q3
+user_175,Paraguay,Masculino,2024-02-12 20:42:03,Tablet,campbell.com,Corporativo,518,2024Q1
+user_176,Saint Barthelemy,Masculino,2025-05-05 15:19:49,Desktop,hansen-warner.com,Corporativo,70,2025Q2
+user_177,Holy See (Vatican City State),Otro,2024-12-09 04:10:20,Tablet,gmail.com,Personal,217,2024Q4
+user_178,Lao People's Democratic Republic,Femenino,2024-04-11 11:39:03,Móvil,yahoo.com,Personal,459,2024Q2
+user_179,Netherlands Antilles,Masculino,2024-01-29 06:56:57,Tablet,gmail.com,Personal,532,2024Q1
+user_180,Tuvalu,Otro,2023-08-18 19:58:41,Desktop,gmail.com,Personal,696,2023Q3
+user_181,Belgium,Otro,2025-04-16 05:03:02,Móvil,rowland.biz,Corporativo,89,2025Q2
+user_182,Liechtenstein,Masculino,2023-10-15 10:31:31,Desktop,ortega.com,Corporativo,638,2023Q4
+user_183,Ireland,Femenino,2024-12-31 20:29:32,Móvil,hotmail.com,Personal,195,2024Q4
+user_184,Saint Barthelemy,Femenino,2023-07-17 02:03:57,Desktop,gmail.com,Personal,728,2023Q3
+user_185,Dominican Republic,Otro,2025-02-22 16:05:50,Tablet,yahoo.com,Personal,142,2025Q1
+user_186,Bangladesh,Otro,2024-01-29 11:18:14,Móvil,clark.com,Corporativo,532,2024Q1
+user_187,Holy See (Vatican City State),Masculino,2023-12-25 12:42:48,Móvil,yahoo.com,Personal,567,2023Q4
+user_188,Tokelau,Otro,2025-03-27 07:36:54,Desktop,bell-scott.info,Corporativo,109,2025Q1
+user_189,Libyan Arab Jamahiriya,Masculino,2025-02-25 04:39:40,Desktop,gmail.com,Personal,139,2025Q1
+user_190,Dominican Republic,Otro,2024-10-27 11:02:09,Tablet,gibson.com,Corporativo,260,2024Q4
+user_191,Brunei Darussalam,Femenino,2024-10-19 13:16:23,Móvil,hotmail.com,Personal,268,2024Q4
+user_192,Monaco,Otro,2024-05-13 03:07:04,Móvil,hotmail.com,Personal,427,2024Q2
+user_193,French Polynesia,Otro,2025-05-09 14:22:23,Tablet,yahoo.com,Personal,66,2025Q2
+user_194,Sierra Leone,Otro,2024-05-04 05:30:58,Tablet,tucker-smith.com,Corporativo,436,2024Q2
+user_195,Bolivia,Otro,2023-11-21 08:12:43,Tablet,gmail.com,Personal,601,2023Q4
+user_196,Norfolk Island,Otro,2024-09-10 18:14:29,Móvil,jordan.com,Corporativo,307,2024Q3
+user_197,Guinea-Bissau,Masculino,2024-07-19 06:36:52,Tablet,hotmail.com,Personal,360,2024Q3
+user_198,Holy See (Vatican City State),Masculino,2024-09-21 13:03:18,Tablet,ortega.net,Corporativo,296,2024Q3
+user_199,San Marino,Masculino,2025-01-11 11:22:29,Móvil,harris.com,Corporativo,184,2025Q1
+user_200,Tokelau,Femenino,2024-07-23 18:03:24,Tablet,smith.com,Corporativo,356,2024Q3
+user_201,Nigeria,Masculino,2024-09-09 03:26:01,Tablet,hotmail.com,Personal,308,2024Q3
+user_202,Taiwan,Otro,2024-11-13 13:25:15,Desktop,knight.biz,Corporativo,243,2024Q4
+user_203,India,Masculino,2024-06-30 00:21:41,Tablet,johnson-powers.com,Corporativo,379,2024Q2
+user_204,Dominican Republic,Masculino,2024-10-23 20:43:43,Tablet,oneal.com,Corporativo,264,2024Q4
+user_205,Fiji,Otro,2024-05-17 01:59:17,Tablet,snow.com,Corporativo,423,2024Q2
+user_206,Timor-Leste,Otro,2024-07-15 14:44:45,Desktop,yahoo.com,Personal,364,2024Q3
+user_207,Niue,Otro,2023-09-03 12:08:07,Tablet,hester-patel.org,Corporativo,680,2023Q3
+user_208,Monaco,Femenino,2023-12-12 04:25:15,Móvil,gmail.com,Personal,580,2023Q4
+user_209,Tuvalu,Femenino,2025-03-18 19:42:34,Tablet,hotmail.com,Personal,118,2025Q1
+user_210,China,Otro,2023-10-15 15:55:14,Tablet,hotmail.com,Personal,638,2023Q4
+user_211,Venezuela,Masculino,2024-09-29 22:46:17,Desktop,myers.com,Corporativo,288,2024Q3
+user_212,Vanuatu,Femenino,2024-08-04 03:27:32,Desktop,smith-lopez.com,Corporativo,344,2024Q3
+user_213,Nigeria,Femenino,2024-07-30 21:00:21,Móvil,yahoo.com,Personal,349,2024Q3
+user_214,Botswana,Otro,2024-09-14 15:33:40,Tablet,williams.com,Corporativo,303,2024Q3
+user_215,Algeria,Femenino,2023-10-11 04:11:50,Desktop,gmail.com,Personal,642,2023Q4
+user_216,Sao Tome and Principe,Femenino,2024-02-08 19:16:07,Tablet,hotmail.com,Personal,522,2024Q1
+user_217,Bermuda,Masculino,2024-10-02 07:38:38,Tablet,weaver.com,Corporativo,285,2024Q4
+user_218,Dominican Republic,Masculino,2024-07-07 12:46:39,Móvil,gmail.com,Personal,372,2024Q3
+user_219,Morocco,Femenino,2025-05-15 07:12:15,Desktop,yahoo.com,Personal,60,2025Q2
+user_220,Sao Tome and Principe,Otro,2024-05-06 21:41:55,Desktop,stevenson.org,Corporativo,434,2024Q2
+user_221,Gibraltar,Femenino,2023-08-01 17:07:27,Móvil,yahoo.com,Personal,713,2023Q3
+user_222,Falkland Islands (Malvinas),Femenino,2024-01-25 20:16:53,Móvil,robinson.biz,Corporativo,536,2024Q1
+user_223,Qatar,Femenino,2023-09-04 20:57:18,Móvil,hotmail.com,Personal,679,2023Q3
+user_224,Kiribati,Otro,2024-06-10 01:27:20,Móvil,hotmail.com,Personal,399,2024Q2
+user_225,Oman,Otro,2024-08-21 07:41:50,Móvil,hotmail.com,Personal,327,2024Q3
+user_226,United States Virgin Islands,Otro,2023-11-16 22:20:11,Desktop,hotmail.com,Personal,606,2023Q4
+user_227,Ireland,Masculino,2024-03-14 15:34:04,Móvil,ramirez-moon.com,Corporativo,487,2024Q1
+user_228,Netherlands Antilles,Masculino,2025-01-20 01:27:29,Móvil,jacobson-young.com,Corporativo,175,2025Q1
+user_229,Ecuador,Femenino,2025-03-18 19:59:19,Desktop,cummings-hernandez.com,Corporativo,118,2025Q1
+user_230,Syrian Arab Republic,Masculino,2024-04-26 19:53:13,Tablet,moore-anderson.org,Corporativo,444,2024Q2
+user_231,France,Otro,2024-07-08 12:22:45,Móvil,webster.com,Corporativo,371,2024Q3
+user_232,Solomon Islands,Masculino,2024-10-28 22:36:41,Desktop,yahoo.com,Personal,259,2024Q4
+user_233,Sri Lanka,Femenino,2023-08-13 21:48:34,Móvil,gmail.com,Personal,701,2023Q3
+user_234,French Southern Territories,Otro,2024-05-01 19:47:56,Tablet,yahoo.com,Personal,439,2024Q2
+user_235,Pakistan,Femenino,2025-03-24 03:43:20,Desktop,cole.com,Corporativo,112,2025Q1
+user_236,Kyrgyz Republic,Masculino,2023-10-25 22:02:55,Móvil,marquez-watson.com,Corporativo,628,2023Q4
+user_237,Nepal,Femenino,2024-02-29 22:35:53,Móvil,eaton-wiggins.com,Corporativo,501,2024Q1
+user_238,Chad,Femenino,2023-07-25 05:03:20,Móvil,hotmail.com,Personal,720,2023Q3
+user_239,Guatemala,Femenino,2024-11-10 13:38:10,Tablet,powell-lindsey.info,Corporativo,246,2024Q4
+user_240,Macedonia,Masculino,2023-09-06 21:18:53,Móvil,johnson.org,Corporativo,677,2023Q3
+user_241,New Zealand,Otro,2024-05-09 19:10:23,Tablet,gmail.com,Personal,431,2024Q2
+user_242,Mayotte,Femenino,2024-09-29 22:43:25,Móvil,lloyd-ware.biz,Corporativo,288,2024Q3
+user_243,Uzbekistan,Otro,2024-12-20 01:20:46,Desktop,buchanan-robinson.com,Corporativo,206,2024Q4
+user_244,Micronesia,Otro,2024-09-14 05:01:21,Móvil,hotmail.com,Personal,303,2024Q3
+user_245,Maldives,Masculino,2024-12-27 19:33:59,Móvil,hotmail.com,Personal,199,2024Q4
+user_246,Zambia,Masculino,2024-10-18 04:54:27,Desktop,turner.com,Corporativo,269,2024Q4
+user_247,Qatar,Femenino,2024-09-09 18:28:01,Tablet,marshall.com,Corporativo,308,2024Q3
+user_248,Yemen,Masculino,2024-12-12 11:58:33,Móvil,yahoo.com,Personal,214,2024Q4
+user_249,Lebanon,Masculino,2023-08-09 09:17:43,Desktop,yahoo.com,Personal,705,2023Q3
+user_250,Croatia,Masculino,2024-05-26 10:37:23,Desktop,hotmail.com,Personal,414,2024Q2
+user_251,South Africa,Otro,2025-02-08 09:38:56,Tablet,castaneda-garcia.com,Corporativo,156,2025Q1
+user_252,Philippines,Femenino,2024-12-30 04:36:50,Móvil,johnson.com,Corporativo,196,2024Q4
+user_253,Armenia,Masculino,2024-11-04 19:30:59,Tablet,williams.com,Corporativo,252,2024Q4
+user_254,New Zealand,Masculino,2025-04-26 14:57:54,Tablet,yahoo.com,Personal,79,2025Q2
+user_255,Bhutan,Masculino,2024-08-05 04:48:34,Desktop,schneider.net,Corporativo,343,2024Q3
+user_256,Zambia,Femenino,2024-08-14 21:05:15,Desktop,yahoo.com,Personal,334,2024Q3
+user_257,Greece,Masculino,2023-12-27 03:50:22,Tablet,hotmail.com,Personal,565,2023Q4
+user_258,Saint Kitts and Nevis,Femenino,2023-09-11 16:00:52,Móvil,bolton.com,Corporativo,672,2023Q3
+user_259,Vietnam,Otro,2025-01-17 09:44:11,Tablet,barnett.com,Corporativo,178,2025Q1
+user_260,Colombia,Otro,2025-04-07 17:24:07,Móvil,johnson.biz,Corporativo,98,2025Q2
+user_261,Zimbabwe,Femenino,2024-01-27 06:28:59,Desktop,parrish.com,Corporativo,534,2024Q1
+user_262,Israel,Femenino,2023-08-15 11:41:47,Desktop,simpson.com,Corporativo,699,2023Q3
+user_263,Croatia,Otro,2023-11-08 10:15:15,Tablet,gmail.com,Personal,614,2023Q4
+user_264,Vanuatu,Masculino,2024-11-03 03:38:44,Desktop,hotmail.com,Personal,253,2024Q4
+user_265,Grenada,Otro,2023-07-30 12:54:41,Tablet,roberts.com,Corporativo,715,2023Q3
+user_266,Djibouti,Masculino,2024-03-17 10:19:34,Desktop,hotmail.com,Personal,484,2024Q1
+user_267,Cyprus,Otro,2025-04-14 16:57:23,Desktop,baker-schmidt.com,Corporativo,91,2025Q2
+user_268,Seychelles,Otro,2024-10-24 20:19:51,Móvil,shaw.com,Corporativo,263,2024Q4
+user_269,Moldova,Masculino,2025-01-30 07:22:40,Móvil,yahoo.com,Personal,165,2025Q1
+user_270,Angola,Masculino,2023-10-01 21:01:16,Tablet,yahoo.com,Personal,652,2023Q4
+user_271,Central African Republic,Otro,2024-04-22 08:29:24,Móvil,hotmail.com,Personal,448,2024Q2
+user_272,Christmas Island,Otro,2023-10-12 16:20:15,Móvil,mckay.com,Corporativo,641,2023Q4
+user_273,Guinea-Bissau,Otro,2025-03-20 10:58:48,Móvil,gmail.com,Personal,116,2025Q1
+user_274,Bahrain,Otro,2023-11-19 16:17:53,Tablet,gmail.com,Personal,603,2023Q4
+user_275,Bosnia and Herzegovina,Femenino,2025-04-03 15:39:03,Desktop,bell.biz,Corporativo,102,2025Q2
+user_276,Micronesia,Femenino,2025-03-06 08:26:03,Desktop,jones.info,Corporativo,130,2025Q1
+user_277,Pakistan,Otro,2024-04-04 17:15:24,Tablet,smith-beck.com,Corporativo,466,2024Q2
+user_278,Moldova,Femenino,2025-03-02 16:33:41,Móvil,hotmail.com,Personal,134,2025Q1
+user_279,Ghana,Masculino,2024-01-23 17:25:35,Móvil,hotmail.com,Personal,538,2024Q1
+user_280,Fiji,Masculino,2024-04-05 15:55:00,Móvil,dominguez.com,Corporativo,465,2024Q2
+user_281,Angola,Masculino,2023-08-05 22:23:00,Desktop,yahoo.com,Personal,709,2023Q3
+user_282,Mozambique,Otro,2025-03-29 06:57:41,Desktop,beasley-white.com,Corporativo,107,2025Q1
+user_283,Bermuda,Otro,2024-12-08 15:03:07,Tablet,goodwin-williams.biz,Corporativo,218,2024Q4
+user_284,Estonia,Femenino,2023-11-16 23:19:46,Desktop,pacheco-sullivan.com,Corporativo,606,2023Q4
+user_285,Chile,Otro,2025-02-08 17:41:31,Tablet,burnett.com,Corporativo,156,2025Q1
+user_286,South Africa,Masculino,2025-02-02 12:22:02,Móvil,hotmail.com,Personal,162,2025Q1
+user_287,Burkina Faso,Femenino,2024-05-25 19:45:50,Desktop,lee-rose.com,Corporativo,415,2024Q2
+user_288,Italy,Otro,2024-01-30 16:29:05,Desktop,hotmail.com,Personal,531,2024Q1
+user_289,Colombia,Femenino,2025-04-09 05:19:54,Desktop,hotmail.com,Personal,96,2025Q2
+user_290,Burkina Faso,Masculino,2024-01-02 01:17:50,Tablet,simon.biz,Corporativo,559,2024Q1
+user_291,Cameroon,Otro,2025-01-29 05:08:56,Tablet,peterson.com,Corporativo,166,2025Q1
+user_292,Kenya,Otro,2024-12-12 16:24:05,Móvil,yahoo.com,Personal,214,2024Q4
+user_293,Ecuador,Masculino,2024-07-31 03:36:00,Móvil,hotmail.com,Personal,348,2024Q3
+user_294,San Marino,Otro,2024-07-06 22:37:44,Tablet,gmail.com,Personal,373,2024Q3
+user_295,Lebanon,Masculino,2025-03-17 21:22:26,Desktop,gmail.com,Personal,119,2025Q1
+user_296,Taiwan,Femenino,2024-07-20 23:48:22,Móvil,yahoo.com,Personal,359,2024Q3
+user_297,Hungary,Masculino,2024-01-02 15:02:23,Tablet,yahoo.com,Personal,559,2024Q1
+user_298,Malaysia,Masculino,2025-03-28 13:59:35,Móvil,hotmail.com,Personal,108,2025Q1
+user_299,Togo,Femenino,2024-11-04 05:10:37,Móvil,todd.net,Corporativo,252,2024Q4
+user_300,Sierra Leone,Otro,2024-09-18 19:52:59,Desktop,hotmail.com,Personal,299,2024Q3
+user_301,Cook Islands,Otro,2024-11-16 01:30:43,Tablet,king-ballard.org,Corporativo,240,2024Q4
+user_302,Greece,Femenino,2023-08-21 04:47:29,Tablet,gmail.com,Personal,693,2023Q3
+user_303,Portugal,Otro,2023-09-13 20:41:50,Desktop,gmail.com,Personal,670,2023Q3
+user_304,Saint Barthelemy,Otro,2023-10-30 00:58:51,Tablet,jones.info,Corporativo,623,2023Q4
+user_305,Tuvalu,Femenino,2024-06-30 00:31:15,Tablet,esparza.org,Corporativo,379,2024Q2
+user_306,Portugal,Femenino,2024-02-16 20:07:37,Desktop,francis.info,Corporativo,514,2024Q1
+user_307,Mozambique,Femenino,2024-01-10 17:57:36,Móvil,clay-garcia.net,Corporativo,551,2024Q1
+user_308,Saint Vincent and the Grenadines,Masculino,2023-09-30 08:41:37,Desktop,gmail.com,Personal,653,2023Q3
+user_309,French Polynesia,Masculino,2024-07-08 13:54:56,Desktop,wilcox.com,Corporativo,371,2024Q3
+user_310,Syrian Arab Republic,Masculino,2024-12-31 01:04:59,Móvil,burton-beard.com,Corporativo,195,2024Q4
+user_311,Botswana,Otro,2023-09-20 12:14:57,Móvil,johnson-thompson.biz,Corporativo,663,2023Q3
+user_312,Zambia,Otro,2025-06-15 09:12:18,Móvil,reeves-reeves.net,Corporativo,29,2025Q2
+user_313,Panama,Femenino,2024-09-29 06:04:23,Tablet,hotmail.com,Personal,288,2024Q3
+user_314,South Georgia and the South Sandwich Islands,Masculino,2025-03-07 02:31:33,Móvil,hotmail.com,Personal,129,2025Q1
+user_315,Brunei Darussalam,Femenino,2025-06-15 07:39:34,Tablet,hotmail.com,Personal,29,2025Q2
+user_316,Martinique,Femenino,2025-05-26 21:01:54,Tablet,marquez.com,Corporativo,49,2025Q2
+user_317,Sweden,Femenino,2023-12-02 02:53:38,Móvil,medina.com,Corporativo,590,2023Q4
+user_318,Saint Helena,Femenino,2024-11-19 22:51:26,Móvil,weber.biz,Corporativo,237,2024Q4
+user_319,Tokelau,Masculino,2025-04-05 10:56:40,Desktop,cannon.com,Corporativo,100,2025Q2
+user_320,Azerbaijan,Masculino,2025-03-19 06:22:47,Móvil,gonzales.com,Corporativo,117,2025Q1
+user_321,Suriname,Femenino,2023-11-08 12:49:20,Móvil,roberts.net,Corporativo,614,2023Q4
+user_322,Macao,Otro,2024-11-10 11:26:31,Móvil,yahoo.com,Personal,246,2024Q4
+user_323,Afghanistan,Masculino,2024-12-11 20:13:11,Desktop,gmail.com,Personal,215,2024Q4
+user_324,Canada,Femenino,2024-05-26 08:07:07,Móvil,hotmail.com,Personal,414,2024Q2
+user_325,Haiti,Otro,2024-03-13 12:07:41,Tablet,gmail.com,Personal,488,2024Q1
+user_326,Micronesia,Femenino,2024-07-07 22:24:57,Móvil,allen.org,Corporativo,372,2024Q3
+user_327,Syrian Arab Republic,Masculino,2024-08-30 04:19:14,Móvil,hebert.com,Corporativo,318,2024Q3
+user_328,Congo,Masculino,2024-05-05 07:01:23,Desktop,fry.net,Corporativo,435,2024Q2
+user_329,Iran,Masculino,2024-11-08 11:20:31,Móvil,hotmail.com,Personal,248,2024Q4
+user_330,Turkmenistan,Femenino,2024-06-06 16:35:14,Tablet,gmail.com,Personal,403,2024Q2
+user_331,Belize,Masculino,2024-07-09 10:36:38,Desktop,yahoo.com,Personal,370,2024Q3
+user_332,Tonga,Otro,2025-05-25 01:33:27,Móvil,yahoo.com,Personal,50,2025Q2
+user_333,Tonga,Masculino,2025-02-02 01:05:23,Móvil,gmail.com,Personal,162,2025Q1
+user_334,Macedonia,Masculino,2023-08-03 02:14:04,Móvil,hotmail.com,Personal,711,2023Q3
+user_335,French Guiana,Femenino,2024-12-31 02:20:43,Móvil,decker.com,Corporativo,195,2024Q4
+user_336,Germany,Masculino,2025-06-01 20:13:08,Tablet,lee-fox.org,Corporativo,43,2025Q2
+user_337,Mauritius,Masculino,2023-08-23 03:53:46,Desktop,fox-griffith.com,Corporativo,691,2023Q3
+user_338,Saint Kitts and Nevis,Otro,2023-09-14 07:21:59,Móvil,morris.com,Corporativo,669,2023Q3
+user_339,Togo,Femenino,2024-05-27 21:39:54,Móvil,hotmail.com,Personal,413,2024Q2
+user_340,Botswana,Femenino,2024-04-01 12:08:05,Desktop,osborn.org,Corporativo,469,2024Q2
+user_341,British Indian Ocean Territory (Chagos Archipelago),Masculino,2025-01-29 13:47:16,Desktop,warner.org,Corporativo,166,2025Q1
+user_342,Netherlands Antilles,Femenino,2023-09-09 16:51:42,Tablet,anderson-brown.com,Corporativo,674,2023Q3
+user_343,Malta,Masculino,2024-07-21 09:20:40,Tablet,yahoo.com,Personal,358,2024Q3
+user_344,Netherlands,Otro,2024-10-26 04:23:12,Desktop,gmail.com,Personal,261,2024Q4
+user_345,Qatar,Otro,2025-02-15 01:41:37,Móvil,gmail.com,Personal,149,2025Q1
+user_346,Dominica,Masculino,2024-08-02 01:29:55,Móvil,yahoo.com,Personal,346,2024Q3
+user_347,Maldives,Masculino,2025-06-02 23:22:52,Móvil,mcmillan.com,Corporativo,42,2025Q2
+user_348,Bolivia,Masculino,2023-11-29 22:39:45,Tablet,flores.com,Corporativo,593,2023Q4
+user_349,Jamaica,Femenino,2025-02-28 07:16:24,Tablet,armstrong-washington.info,Corporativo,136,2025Q1
+user_350,Gabon,Femenino,2025-06-11 20:19:27,Desktop,gmail.com,Personal,33,2025Q2
+user_351,Oman,Otro,2024-05-02 08:27:35,Desktop,english.com,Corporativo,438,2024Q2
+user_352,Swaziland,Otro,2023-08-22 12:15:17,Móvil,hotmail.com,Personal,692,2023Q3
+user_353,Iraq,Masculino,2025-02-22 23:53:31,Tablet,cowan.com,Corporativo,142,2025Q1
+user_354,Switzerland,Otro,2024-09-17 22:00:06,Móvil,yahoo.com,Personal,300,2024Q3
+user_355,Slovenia,Otro,2024-04-26 01:03:09,Desktop,hotmail.com,Personal,444,2024Q2
+user_356,Zimbabwe,Masculino,2023-11-29 15:29:42,Desktop,clay.com,Corporativo,593,2023Q4
+user_357,Micronesia,Masculino,2024-07-17 23:53:39,Móvil,castro.com,Corporativo,362,2024Q3
+user_358,Georgia,Otro,2024-09-24 21:02:54,Desktop,gmail.com,Personal,293,2024Q3
+user_359,Saudi Arabia,Masculino,2023-07-30 05:09:49,Tablet,sanchez.net,Corporativo,715,2023Q3
+user_360,United Arab Emirates,Otro,2025-01-06 13:21:33,Desktop,gmail.com,Personal,189,2025Q1
+user_361,Hong Kong,Masculino,2024-10-03 14:49:52,Tablet,rhodes.net,Corporativo,284,2024Q4
+user_362,Seychelles,Masculino,2023-12-11 10:09:11,Desktop,powers.com,Corporativo,581,2023Q4
+user_363,Faroe Islands,Otro,2024-11-13 21:12:32,Tablet,hernandez.net,Corporativo,243,2024Q4
+user_364,Nepal,Masculino,2024-05-15 01:37:32,Móvil,contreras.biz,Corporativo,425,2024Q2
+user_365,Swaziland,Otro,2025-04-16 02:50:23,Desktop,barnett.com,Corporativo,89,2025Q2
+user_366,Congo,Otro,2025-05-23 19:14:28,Tablet,morris.net,Corporativo,52,2025Q2
+user_367,Kenya,Femenino,2024-10-23 18:03:37,Desktop,nelson-huang.info,Corporativo,264,2024Q4
+user_368,Paraguay,Otro,2023-10-25 14:51:56,Desktop,yahoo.com,Personal,628,2023Q4
+user_369,Reunion,Masculino,2024-10-26 01:17:06,Desktop,leblanc-hendrix.org,Corporativo,261,2024Q4
+user_370,Djibouti,Otro,2023-09-23 21:31:00,Desktop,yahoo.com,Personal,660,2023Q3
+user_371,Algeria,Otro,2023-12-22 18:53:02,Tablet,mcdonald.info,Corporativo,570,2023Q4
+user_372,Sweden,Femenino,2024-08-18 07:27:18,Tablet,robinson.com,Corporativo,330,2024Q3
+user_373,Belarus,Femenino,2025-06-07 23:51:50,Desktop,yahoo.com,Personal,37,2025Q2
+user_374,Aruba,Femenino,2025-04-11 13:32:13,Tablet,lin.net,Corporativo,94,2025Q2
+user_375,Vanuatu,Femenino,2023-11-03 17:47:54,Tablet,ross.com,Corporativo,619,2023Q4
+user_376,Sweden,Otro,2023-12-05 06:59:13,Tablet,davis.net,Corporativo,587,2023Q4
+user_377,Slovenia,Masculino,2025-02-03 14:02:28,Móvil,yahoo.com,Personal,161,2025Q1
+user_378,Antarctica (the territory South of 60 deg S),Masculino,2024-04-04 12:30:55,Móvil,stephens.biz,Corporativo,466,2024Q2
+user_379,Korea,Femenino,2024-07-22 03:30:28,Móvil,ball.com,Corporativo,357,2024Q3
+user_380,Serbia,Femenino,2023-07-18 08:55:26,Móvil,dalton.com,Corporativo,727,2023Q3
+user_381,American Samoa,Femenino,2025-03-11 08:37:32,Desktop,moore.com,Corporativo,125,2025Q1
+user_382,Maldives,Femenino,2024-12-03 12:05:49,Tablet,gmail.com,Personal,223,2024Q4
+user_383,Dominica,Masculino,2024-06-14 14:00:32,Desktop,grant.com,Corporativo,395,2024Q2
+user_384,Panama,Femenino,2025-04-30 10:34:11,Tablet,yates-bean.com,Corporativo,75,2025Q2
+user_385,Tanzania,Masculino,2025-02-06 20:15:49,Móvil,yahoo.com,Personal,158,2025Q1
+user_386,Puerto Rico,Masculino,2024-12-06 05:55:23,Desktop,rivers-potter.com,Corporativo,220,2024Q4
+user_387,Seychelles,Femenino,2024-12-07 17:13:38,Tablet,hotmail.com,Personal,219,2024Q4
+user_388,Panama,Femenino,2024-07-09 00:11:03,Móvil,hotmail.com,Personal,370,2024Q3
+user_389,Ghana,Otro,2024-08-20 12:04:09,Móvil,gmail.com,Personal,328,2024Q3
+user_390,Somalia,Femenino,2024-01-17 01:55:55,Tablet,hotmail.com,Personal,544,2024Q1
+user_391,Poland,Otro,2024-07-05 07:15:19,Desktop,yahoo.com,Personal,374,2024Q3
+user_392,Ethiopia,Femenino,2024-01-27 17:46:04,Desktop,yahoo.com,Personal,534,2024Q1
+user_393,French Polynesia,Femenino,2023-12-07 20:26:43,Desktop,hotmail.com,Personal,585,2023Q4
+user_394,Mauritius,Femenino,2024-10-03 08:53:17,Desktop,gmail.com,Personal,284,2024Q4
+user_395,Chad,Femenino,2024-10-05 14:00:04,Desktop,sloan.biz,Corporativo,282,2024Q4
+user_396,Moldova,Femenino,2025-01-18 13:46:57,Desktop,dalton.com,Corporativo,177,2025Q1
+user_397,New Caledonia,Masculino,2024-03-21 12:24:52,Móvil,gmail.com,Personal,480,2024Q1
+user_398,British Indian Ocean Territory (Chagos Archipelago),Femenino,2025-05-28 09:24:02,Móvil,hotmail.com,Personal,47,2025Q2
+user_399,Morocco,Femenino,2024-01-15 22:38:53,Tablet,gonzalez.com,Corporativo,546,2024Q1
+user_400,Cook Islands,Masculino,2023-10-07 21:43:14,Desktop,chavez-murphy.com,Corporativo,646,2023Q4
+user_401,Thailand,Masculino,2024-03-19 02:13:53,Desktop,allen.info,Corporativo,482,2024Q1
+user_402,Korea,Otro,2024-05-09 01:19:50,Tablet,johnson.com,Corporativo,431,2024Q2
+user_403,Albania,Otro,2024-02-12 15:28:25,Tablet,yahoo.com,Personal,518,2024Q1
+user_404,Micronesia,Masculino,2025-04-05 01:37:52,Desktop,yahoo.com,Personal,100,2025Q2
+user_405,Kenya,Masculino,2024-02-18 17:55:16,Móvil,hotmail.com,Personal,512,2024Q1
+user_406,Guadeloupe,Masculino,2025-02-04 20:58:20,Móvil,hotmail.com,Personal,160,2025Q1
+user_407,United States Minor Outlying Islands,Femenino,2023-10-16 18:53:41,Móvil,hotmail.com,Personal,637,2023Q4
+user_408,Armenia,Otro,2023-11-14 17:56:39,Móvil,gmail.com,Personal,608,2023Q4
+user_409,Cote d'Ivoire,Femenino,2023-07-20 22:46:49,Móvil,lloyd.com,Corporativo,725,2023Q3
+user_410,Thailand,Otro,2024-08-23 08:53:45,Desktop,yahoo.com,Personal,325,2024Q3
+user_411,Jamaica,Femenino,2024-06-29 09:00:05,Desktop,gmail.com,Personal,380,2024Q2
+user_412,Haiti,Otro,2025-05-03 16:51:05,Tablet,gmail.com,Personal,72,2025Q2
+user_413,Sri Lanka,Femenino,2025-04-08 12:56:46,Móvil,gmail.com,Personal,97,2025Q2
+user_414,Niger,Otro,2023-09-26 13:13:08,Tablet,thomas.com,Corporativo,657,2023Q3
+user_415,Anguilla,Masculino,2024-09-02 05:43:03,Tablet,robbins.com,Corporativo,315,2024Q3
+user_416,Moldova,Otro,2024-11-15 04:46:24,Tablet,castillo-flores.com,Corporativo,241,2024Q4
+user_417,Saint Lucia,Femenino,2023-10-04 01:01:50,Móvil,harmon.com,Corporativo,649,2023Q4
+user_418,Poland,Femenino,2023-12-30 16:07:17,Desktop,yahoo.com,Personal,562,2023Q4
+user_419,Turkmenistan,Femenino,2023-11-26 14:12:52,Desktop,moses.biz,Corporativo,596,2023Q4
+user_420,Reunion,Femenino,2024-01-22 13:09:31,Tablet,mosley.com,Corporativo,539,2024Q1
+user_421,Oman,Otro,2024-07-10 06:24:38,Móvil,hotmail.com,Personal,369,2024Q3
+user_422,Eritrea,Femenino,2025-05-18 19:47:50,Tablet,yahoo.com,Personal,57,2025Q2
+user_423,Central African Republic,Otro,2023-08-28 16:23:02,Móvil,gonzales.com,Corporativo,686,2023Q3
+user_424,Burundi,Femenino,2024-10-08 19:04:51,Móvil,yahoo.com,Personal,279,2024Q4
+user_425,Saint Lucia,Masculino,2025-03-21 16:32:24,Tablet,taylor.biz,Corporativo,115,2025Q1
+user_426,Macedonia,Otro,2025-05-17 10:03:13,Móvil,cochran.net,Corporativo,58,2025Q2
+user_427,South Georgia and the South Sandwich Islands,Femenino,2025-04-27 09:41:33,Móvil,gmail.com,Personal,78,2025Q2
+user_428,Suriname,Otro,2024-10-03 10:13:11,Tablet,nielsen.com,Corporativo,284,2024Q4
+user_429,Norway,Otro,2024-10-06 22:31:33,Desktop,duncan.com,Corporativo,281,2024Q4
+user_430,Palau,Otro,2025-05-20 16:58:47,Desktop,yahoo.com,Personal,55,2025Q2
+user_431,Bermuda,Femenino,2024-10-31 09:53:30,Móvil,clark.info,Corporativo,256,2024Q4
+user_432,Austria,Femenino,2023-10-14 01:48:06,Móvil,bradshaw.com,Corporativo,639,2023Q4
+user_433,Kiribati,Femenino,2023-10-30 05:55:50,Tablet,williams.com,Corporativo,623,2023Q4
+user_434,Croatia,Femenino,2023-08-14 09:06:46,Móvil,hotmail.com,Personal,700,2023Q3
+user_435,Christmas Island,Femenino,2023-10-02 15:38:20,Desktop,shepherd.com,Corporativo,651,2023Q4
+user_436,Papua New Guinea,Otro,2024-03-26 07:57:03,Móvil,hotmail.com,Personal,475,2024Q1
+user_437,Sri Lanka,Femenino,2023-12-30 07:43:34,Móvil,cochran.com,Corporativo,562,2023Q4
+user_438,British Indian Ocean Territory (Chagos Archipelago),Otro,2023-11-03 19:46:12,Móvil,yahoo.com,Personal,619,2023Q4
+user_439,Eritrea,Femenino,2023-09-12 20:06:15,Tablet,gmail.com,Personal,671,2023Q3
+user_440,Lesotho,Masculino,2024-01-11 21:30:14,Desktop,gmail.com,Personal,550,2024Q1
+user_441,Denmark,Otro,2023-10-25 14:05:53,Desktop,simmons-garza.biz,Corporativo,628,2023Q4
+user_442,Egypt,Femenino,2023-08-31 04:13:39,Móvil,haynes.com,Corporativo,683,2023Q3
+user_443,Korea,Femenino,2024-04-27 21:31:25,Desktop,hotmail.com,Personal,443,2024Q2
+user_444,Holy See (Vatican City State),Otro,2024-02-23 00:33:05,Desktop,yahoo.com,Personal,507,2024Q1
+user_445,Jordan,Otro,2023-07-18 17:52:56,Tablet,yahoo.com,Personal,727,2023Q3
+user_446,Falkland Islands (Malvinas),Femenino,2025-02-28 14:35:08,Desktop,sparks.biz,Corporativo,136,2025Q1
+user_447,Guam,Otro,2025-01-13 16:07:39,Móvil,diaz.com,Corporativo,182,2025Q1
+user_448,Rwanda,Otro,2024-01-10 15:20:46,Móvil,yahoo.com,Personal,551,2024Q1
+user_449,Cook Islands,Masculino,2025-03-29 19:10:21,Móvil,yahoo.com,Personal,107,2025Q1
+user_450,El Salvador,Femenino,2024-08-05 00:18:36,Tablet,rhodes.org,Corporativo,343,2024Q3
+user_451,Jordan,Otro,2025-04-16 00:23:05,Tablet,weeks-massey.biz,Corporativo,89,2025Q2
+user_452,Israel,Otro,2024-06-11 04:01:59,Tablet,brown.biz,Corporativo,398,2024Q2
+user_453,Angola,Femenino,2025-02-17 09:44:53,Desktop,tucker.com,Corporativo,147,2025Q1
+user_454,Equatorial Guinea,Masculino,2024-11-01 20:35:13,Desktop,bright.com,Corporativo,255,2024Q4
+user_455,Northern Mariana Islands,Masculino,2024-01-06 08:39:52,Tablet,yahoo.com,Personal,555,2024Q1
+user_456,Canada,Femenino,2023-12-31 14:46:18,Móvil,carter.com,Corporativo,561,2023Q4
+user_457,Paraguay,Femenino,2024-10-17 15:31:38,Móvil,white-mclaughlin.net,Corporativo,270,2024Q4
+user_458,Chad,Femenino,2025-06-01 19:11:20,Tablet,yahoo.com,Personal,43,2025Q2
+user_459,Panama,Femenino,2024-12-14 10:07:31,Tablet,richard.com,Corporativo,212,2024Q4
+user_460,Western Sahara,Femenino,2025-03-28 08:51:26,Móvil,hotmail.com,Personal,108,2025Q1
+user_461,Angola,Masculino,2025-02-03 08:58:28,Móvil,yahoo.com,Personal,161,2025Q1
+user_462,Vanuatu,Otro,2024-05-21 12:53:00,Tablet,hotmail.com,Personal,419,2024Q2
+user_463,Macedonia,Masculino,2024-05-01 23:04:38,Móvil,palmer.info,Corporativo,439,2024Q2
+user_464,Tajikistan,Otro,2023-12-10 08:34:19,Tablet,kennedy-davis.com,Corporativo,582,2023Q4
+user_465,Nepal,Femenino,2024-12-18 08:20:43,Móvil,craig-garza.com,Corporativo,208,2024Q4
+user_466,Aruba,Masculino,2024-10-15 23:45:29,Móvil,yahoo.com,Personal,272,2024Q4
+user_467,Christmas Island,Masculino,2024-07-29 06:44:19,Desktop,snyder.com,Corporativo,350,2024Q3
+user_468,Cocos (Keeling) Islands,Femenino,2024-02-29 02:04:15,Móvil,carpenter-trevino.biz,Corporativo,501,2024Q1
+user_469,Estonia,Masculino,2024-11-02 19:48:20,Desktop,hotmail.com,Personal,254,2024Q4
+user_470,Morocco,Otro,2025-02-25 23:17:52,Tablet,garcia-thomas.com,Corporativo,139,2025Q1
+user_471,Qatar,Masculino,2024-08-09 09:20:50,Desktop,adams.net,Corporativo,339,2024Q3
+user_472,Kenya,Masculino,2024-10-26 03:58:27,Desktop,hotmail.com,Personal,261,2024Q4
+user_473,Guinea-Bissau,Otro,2024-12-11 04:15:47,Móvil,willis.com,Corporativo,215,2024Q4
+user_474,Colombia,Masculino,2024-01-25 17:39:59,Desktop,cortez-kline.com,Corporativo,536,2024Q1
+user_475,Sao Tome and Principe,Femenino,2024-03-07 06:17:06,Desktop,kent.com,Corporativo,494,2024Q1
+user_476,Ukraine,Masculino,2025-02-16 05:46:12,Móvil,butler.info,Corporativo,148,2025Q1
+user_477,Malaysia,Masculino,2025-05-05 02:55:17,Tablet,thomas.biz,Corporativo,70,2025Q2
+user_478,New Zealand,Femenino,2024-12-12 17:18:00,Desktop,yahoo.com,Personal,214,2024Q4
+user_479,Mongolia,Otro,2024-03-15 05:35:07,Móvil,yahoo.com,Personal,486,2024Q1
+user_480,New Zealand,Femenino,2023-10-29 07:12:19,Móvil,gmail.com,Personal,624,2023Q4
+user_481,Brazil,Masculino,2023-09-09 07:00:00,Móvil,yahoo.com,Personal,674,2023Q3
+user_482,Bolivia,Femenino,2024-08-19 09:03:23,Desktop,jenkins.com,Corporativo,329,2024Q3
+user_483,Palau,Otro,2024-12-03 12:34:31,Tablet,hotmail.com,Personal,223,2024Q4
+user_484,Pitcairn Islands,Femenino,2025-05-18 15:09:02,Móvil,yahoo.com,Personal,57,2025Q2
+user_485,Somalia,Otro,2024-06-19 02:55:43,Tablet,yahoo.com,Personal,390,2024Q2
+user_486,Guam,Femenino,2024-09-06 03:00:52,Tablet,yahoo.com,Personal,311,2024Q3
+user_487,Antarctica (the territory South of 60 deg S),Masculino,2024-06-10 20:21:04,Tablet,hotmail.com,Personal,399,2024Q2
+user_488,Sierra Leone,Otro,2024-06-05 20:43:14,Tablet,gmail.com,Personal,404,2024Q2
+user_489,Venezuela,Femenino,2024-12-22 02:51:11,Desktop,hotmail.com,Personal,204,2024Q4
+user_490,Burkina Faso,Masculino,2025-02-28 21:23:01,Móvil,benson-wells.biz,Corporativo,136,2025Q1
+user_491,Marshall Islands,Masculino,2025-03-26 13:54:35,Desktop,watson.com,Corporativo,110,2025Q1
+user_492,Brunei Darussalam,Masculino,2023-12-15 18:29:32,Desktop,olson-simpson.net,Corporativo,577,2023Q4
+user_493,Kiribati,Otro,2023-10-29 09:51:30,Móvil,yahoo.com,Personal,624,2023Q4
+user_494,Austria,Otro,2023-12-21 23:45:22,Desktop,gmail.com,Personal,571,2023Q4
+user_495,Hungary,Otro,2025-05-19 13:47:23,Desktop,hotmail.com,Personal,56,2025Q2
+user_496,Macao,Femenino,2024-03-24 12:19:22,Desktop,anderson-powers.com,Corporativo,477,2024Q1
+user_497,Gambia,Otro,2024-12-04 16:25:25,Móvil,yahoo.com,Personal,222,2024Q4
+user_498,France,Otro,2025-03-05 12:09:03,Móvil,blackburn.info,Corporativo,131,2025Q1
+user_499,Serbia,Femenino,2023-12-23 20:17:25,Tablet,yahoo.com,Personal,569,2023Q4
+user_500,Guinea,Femenino,2025-01-21 08:55:09,Desktop,ryan.info,Corporativo,174,2025Q1

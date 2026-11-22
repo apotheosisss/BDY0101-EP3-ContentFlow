@@ -1,0 +1,26 @@
+model Model
+	culture: es-MX
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CL
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["RutaDatos", "dim_usuarios", "dim_publicaciones", "dim_campanas", "dim_fecha", "fact_interacciones", "puente_publicacion_hashtag", "puente_campana_publicacion", "control_ejecucion", "Medidas"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_usuarios
+ref table dim_publicaciones
+ref table dim_campanas
+ref table dim_fecha
+ref table fact_interacciones
+ref table puente_publicacion_hashtag
+ref table puente_campana_publicacion
+ref table control_ejecucion
+ref table Medidas
+
+ref cultureInfo es-MX

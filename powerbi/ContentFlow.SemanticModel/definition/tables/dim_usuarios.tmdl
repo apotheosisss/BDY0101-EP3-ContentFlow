@@ -1,0 +1,70 @@
+table dim_usuarios
+	lineageTag: 007aee08-4652-5ed8-9d56-eff19aaff4a6
+
+	column usuario_id
+		dataType: string
+		lineageTag: 7792e969-f49b-5513-b8ec-69bac8c979dd
+		summarizeBy: none
+		sourceColumn: usuario_id
+
+	column pais
+		dataType: string
+		lineageTag: 2dfaba85-da08-5c54-a567-8cf7045592c0
+		summarizeBy: none
+		sourceColumn: pais
+
+	column genero
+		dataType: string
+		lineageTag: d17b9c96-150e-592a-b048-a737cfd5c810
+		summarizeBy: none
+		sourceColumn: genero
+
+	column fecha_registro
+		dataType: dateTime
+		formatString: dd-mm-yyyy
+		lineageTag: 6d7124fe-f028-5f05-a77d-efa371db3ed8
+		summarizeBy: none
+		sourceColumn: fecha_registro
+
+	column dispositivo
+		dataType: string
+		lineageTag: a760f312-2054-5de2-bec5-3ed15c91589c
+		summarizeBy: none
+		sourceColumn: dispositivo
+
+	column dominio_correo
+		dataType: string
+		lineageTag: 4edb2c5f-f32c-5b70-988b-c9d7db9e355b
+		summarizeBy: none
+		sourceColumn: dominio_correo
+
+	column tipo_correo
+		dataType: string
+		lineageTag: f4b36b63-a33f-536c-b6fe-96e95b1510b0
+		summarizeBy: none
+		sourceColumn: tipo_correo
+
+	column antiguedad_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: f9ac53d2-a1d7-5681-9c2f-e14c2c17b9fd
+		summarizeBy: none
+		sourceColumn: antiguedad_dias
+
+	column cohorte_registro
+		dataType: string
+		lineageTag: 18542da5-3498-53bd-96f8-159ede7f58b7
+		summarizeBy: none
+		sourceColumn: cohorte_registro
+
+	partition dim_usuarios = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_usuarios.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"usuario_id", type text}, {"pais", type text}, {"genero", type text}, {"fecha_registro", type datetime}, {"dispositivo", type text}, {"dominio_correo", type text}, {"tipo_correo", type text}, {"antiguedad_dias", Int64.Type}, {"cohorte_registro", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

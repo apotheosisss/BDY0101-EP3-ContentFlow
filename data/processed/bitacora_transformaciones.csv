@@ -1,0 +1,22 @@
+﻿tabla,tipo,operacion,motivo,registros_afectados
+dim_usuarios,semántica,correo -> dominio y tipo (Personal/Corporativo); se elimina el correo,Minimiza datos personales y permite segmentar audiencia,500
+dim_usuarios,formato,'fecha_registro' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
+dim_usuarios,semántica,antigüedad en días y cohorte trimestral de registro,Analizar retención según antigüedad del usuario,500
+dim_usuarios,limpieza,trim de pais/genero/dispositivo,Evita categorías duplicadas por espacios,500
+dim_publicaciones,formato,'fecha_publicacion' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
+dim_publicaciones,semántica,"hora, día de semana y franja horaria de publicación",Responde a la pregunta de negocio sobre horarios de publicación,500
+puente_publicacion_hashtag,estructural,"arreglo 'hashtags' desanidado a tabla puente (1 fila por hashtag), sin '#', minúsculas, sin tildes",Power BI no filtra sobre listas; la tabla puente permite relación muchos-a-muchos,1018
+dim_publicaciones,semántica,"engagement = reacciones + comentarios; ponderado = reacciones + 2*comentarios + 0,1*likes de comentarios",Un comentario exige más esfuerzo que una reacción; mide popularidad del contenido,500
+fact_interacciones,formato,'fecha' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
+fact_interacciones,limpieza,reacciones duplicadas (mismo usuario y publicación): se conserva la más reciente,Una persona tiene una sola reacción vigente por publicación,1
+fact_interacciones,semántica,tipo de reacción -> sentimiento (Me gusta/Me encanta = Positivo; Me enoja/Me entristece = Negativo),KPI de percepción del contenido,499
+fact_interacciones,formato,'fecha' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
+fact_interacciones,estructural,reacciones y comentarios unificados en una tabla de hechos (tipo_interaccion),"Un solo hecho permite medir actividad total por usuario, publicación y tiempo",999
+fact_interacciones,limpieza,marca 'consistente_temporal' = interacción posterior a la publicación,Se detectaron interacciones fechadas antes de su publicación; se marcan (no se borran) para poder filtrarlas y reportar calidad de datos,495
+fact_interacciones,limpieza,validación de integridad referencial usuario/publicación,Evita hechos sin dimensión en el modelo,0
+dim_campanas,formato,'fecha_inicio' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
+dim_campanas,formato,'fecha_fin' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
+dim_campanas,semántica,etiqueta = nombre + id,108 campañas comparten nombre; sin el id se mezclarían en los gráficos,500
+puente_campana_publicacion,estructural,arreglo 'publicaciones_asociadas' desanidado ($unwind) a tabla puente,Relación muchos-a-muchos campaña-publicación,1487
+dim_campanas,semántica,logro = interacciones reales en la ventana de la campaña / meta (likes ≈ reacciones positivas),Mide el impacto de cada campaña frente a su objetivo. 'compartidos' no existe en los datos: queda como meta sin medición,500
+dim_fecha,estructural,tabla calendario continua,"Inteligencia de tiempo en Power BI (tendencias mensuales, comparaciones)",730

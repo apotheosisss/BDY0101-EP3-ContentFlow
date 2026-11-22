@@ -1,0 +1,11 @@
+# credenciales (cadena de conexión de Cosmos DB)
+.env
+.venv/
+__pycache__/
+*.pyc
+# Power BI: configuración local y caché de datos
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+powerbi/*.pbix.bak
+~$*
+logs/

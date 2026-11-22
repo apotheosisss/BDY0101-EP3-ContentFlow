@@ -1,0 +1,34 @@
+table control_ejecucion
+	lineageTag: 4987493b-0c9c-5f26-b299-7f0ba47724f5
+
+	column ultima_ejecucion
+		dataType: dateTime
+		formatString: dd-mm-yyyy hh:nn
+		lineageTag: 64e55f8d-1854-5f4d-92f4-90f7c254e7a4
+		summarizeBy: none
+		sourceColumn: ultima_ejecucion
+
+	column origen
+		dataType: string
+		lineageTag: 3ba45224-1c6f-5d63-a8f4-5b833c2baa18
+		summarizeBy: none
+		sourceColumn: origen
+
+	column filas_hechos
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d5094e1-4e01-5a16-8ba2-b9c888ac3055
+		summarizeBy: none
+		sourceColumn: filas_hechos
+
+	partition control_ejecucion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "control_ejecucion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"ultima_ejecucion", type datetime}, {"origen", type text}, {"filas_hechos", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

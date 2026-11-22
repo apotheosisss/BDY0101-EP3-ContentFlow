@@ -1,0 +1,142 @@
+table dim_campanas
+	lineageTag: cf58b5ca-c178-5512-ae57-30dd726476e0
+
+	column campana_id
+		dataType: string
+		lineageTag: e748db84-61b3-5dcd-9a67-759e1956ffc2
+		summarizeBy: none
+		sourceColumn: campana_id
+
+	column nombre
+		dataType: string
+		lineageTag: 6f5b513d-8a64-5c9f-9445-017c51752105
+		summarizeBy: none
+		sourceColumn: nombre
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: dd-mm-yyyy
+		lineageTag: 8803bf6b-aa8a-5e67-b783-cc7772909ed4
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: dd-mm-yyyy
+		lineageTag: 6fd67da8-898e-544d-affe-a4ea18477c7e
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+	column objetivo
+		dataType: string
+		lineageTag: e3863794-bad8-552b-8332-d7c4818ae95a
+		summarizeBy: none
+		sourceColumn: objetivo
+
+	column meta_likes
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bb63138-552e-50c6-84a0-87137a7d6161
+		summarizeBy: none
+		sourceColumn: meta_likes
+
+	column meta_comentarios
+		dataType: int64
+		formatString: 0
+		lineageTag: b969d6ec-f485-5453-ad7a-0d9c19092d24
+		summarizeBy: none
+		sourceColumn: meta_comentarios
+
+	column meta_compartidos
+		dataType: int64
+		formatString: 0
+		lineageTag: e9729a0a-f746-5015-8ab9-bf393d50c2c7
+		summarizeBy: none
+		sourceColumn: meta_compartidos
+
+	column n_publicaciones
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e25749f-424a-5681-9fdf-9e4d6caa364e
+		summarizeBy: none
+		sourceColumn: n_publicaciones
+
+	column etiqueta
+		dataType: string
+		lineageTag: fe011c9b-bd1a-5794-87fd-ec3d357184e7
+		summarizeBy: none
+		sourceColumn: etiqueta
+
+	column duracion_dias
+		dataType: int64
+		formatString: 0
+		lineageTag: b46dc5b0-0d8a-5b7a-ab48-914def7c10a1
+		summarizeBy: none
+		sourceColumn: duracion_dias
+
+	column reacciones_logradas
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e76f9f8-fde6-530f-bdc0-02f396e9116e
+		summarizeBy: none
+		sourceColumn: reacciones_logradas
+
+	column reacciones_positivas
+		dataType: int64
+		formatString: 0
+		lineageTag: 04a18021-7be9-59d9-a1aa-300975c1c4d8
+		summarizeBy: none
+		sourceColumn: reacciones_positivas
+
+	column comentarios_logrados
+		dataType: int64
+		formatString: 0
+		lineageTag: 79b209fb-61f4-53ca-bcdd-776d8cd0e21f
+		summarizeBy: none
+		sourceColumn: comentarios_logrados
+
+	column usuarios_alcanzados
+		dataType: int64
+		formatString: 0
+		lineageTag: 807c04e5-ffde-5963-8786-2cc46988a749
+		summarizeBy: none
+		sourceColumn: usuarios_alcanzados
+
+	column pct_logro_likes
+		dataType: double
+		formatString: 0.00%
+		lineageTag: ccccbef7-a7a6-5d91-963b-db18efefd731
+		summarizeBy: none
+		sourceColumn: pct_logro_likes
+
+	column pct_logro_comentarios
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 8bd7cb95-bf92-512e-895f-3d25acae9f51
+		summarizeBy: none
+		sourceColumn: pct_logro_comentarios
+
+	column pct_logro_promedio
+		dataType: double
+		formatString: 0.00%
+		lineageTag: d9c67d49-ec63-5c54-b31c-07b5c953c014
+		summarizeBy: none
+		sourceColumn: pct_logro_promedio
+
+	column estado
+		dataType: string
+		lineageTag: a3af051b-2fdd-5128-bf66-bb9c2cb039e9
+		summarizeBy: none
+		sourceColumn: estado
+
+	partition dim_campanas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_campanas.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"campana_id", type text}, {"nombre", type text}, {"fecha_inicio", type datetime}, {"fecha_fin", type datetime}, {"objetivo", type text}, {"meta_likes", Int64.Type}, {"meta_comentarios", Int64.Type}, {"meta_compartidos", Int64.Type}, {"n_publicaciones", Int64.Type}, {"etiqueta", type text}, {"duracion_dias", Int64.Type}, {"reacciones_logradas", Int64.Type}, {"reacciones_positivas", Int64.Type}, {"comentarios_logrados", Int64.Type}, {"usuarios_alcanzados", Int64.Type}, {"pct_logro_likes", type number}, {"pct_logro_comentarios", type number}, {"pct_logro_promedio", type number}, {"estado", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

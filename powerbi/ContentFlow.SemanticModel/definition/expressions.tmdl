@@ -1,0 +1,4 @@
+expression RutaDatos = "C:\Users\molte\Downloads\bddnr\ev3\contentflow\data\processed\" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: f80d2933-1a3c-52ce-8522-a6074a6a4f6a
+
+	annotation PBI_ResultType = Text

@@ -1,0 +1,129 @@
+table dim_publicaciones
+	lineageTag: 4f1662ee-8655-52c5-b7e1-26e2c9239503
+
+	column publicacion_id
+		dataType: string
+		lineageTag: edb81be7-4eda-513c-ac91-17fc00055f32
+		summarizeBy: none
+		sourceColumn: publicacion_id
+
+	column autor_id
+		dataType: string
+		lineageTag: a819566b-1dbc-534b-b9dc-5499b6188dd1
+		summarizeBy: none
+		sourceColumn: autor_id
+
+	column fecha_publicacion
+		dataType: dateTime
+		formatString: dd-mm-yyyy hh:nn
+		lineageTag: 8a07e460-8481-5bb7-af8a-42cd8ad8e358
+		summarizeBy: none
+		sourceColumn: fecha_publicacion
+
+	column categoria
+		dataType: string
+		lineageTag: ee380db7-28f2-5704-98f0-213186652721
+		summarizeBy: none
+		sourceColumn: categoria
+
+	column tipo
+		dataType: string
+		lineageTag: 5ec1551e-5d18-5f89-8ac9-5d7dd3087e0e
+		summarizeBy: none
+		sourceColumn: tipo
+
+	column largo_contenido
+		dataType: int64
+		formatString: 0
+		lineageTag: 1955c49c-878a-50bf-ba70-42b592c0ae54
+		summarizeBy: none
+		sourceColumn: largo_contenido
+
+	column n_reacciones
+		dataType: int64
+		formatString: 0
+		lineageTag: f4dc7878-f50d-5677-8fd5-a8f19356ae6b
+		summarizeBy: none
+		sourceColumn: n_reacciones
+
+	column n_comentarios
+		dataType: int64
+		formatString: 0
+		lineageTag: 137318d7-10a3-5430-81d1-97ace4fa62c7
+		summarizeBy: none
+		sourceColumn: n_comentarios
+
+	column likes_comentarios
+		dataType: double
+		formatString: 0.00
+		lineageTag: 5082329a-18b4-5db8-9a00-beeb9ec49214
+		summarizeBy: none
+		sourceColumn: likes_comentarios
+
+	column pub_fecha
+		dataType: dateTime
+		formatString: dd-mm-yyyy
+		lineageTag: fb3c1fbf-3106-5a74-a7ee-52a66b7727f3
+		summarizeBy: none
+		sourceColumn: pub_fecha
+
+	column pub_hora
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c2efe26-79b0-579c-b3a8-9009c76f1a16
+		summarizeBy: none
+		sourceColumn: pub_hora
+
+	column pub_dia_semana_num
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: edf1484d-d50a-5861-aa6d-92dee600e9d3
+		summarizeBy: none
+		sourceColumn: pub_dia_semana_num
+
+	column pub_dia_semana
+		dataType: string
+		sortByColumn: pub_dia_semana_num
+		lineageTag: 86d16fcb-33aa-59a8-a6e2-1dfc5db26e2b
+		summarizeBy: none
+		sourceColumn: pub_dia_semana
+
+	column pub_franja
+		dataType: string
+		lineageTag: 0e2b6115-461d-5500-934f-c9481fa76720
+		summarizeBy: none
+		sourceColumn: pub_franja
+
+	column n_hashtags
+		dataType: int64
+		formatString: 0
+		lineageTag: d6698f25-503d-52d3-b133-b59342fefaea
+		summarizeBy: none
+		sourceColumn: n_hashtags
+
+	column engagement
+		dataType: int64
+		formatString: 0
+		lineageTag: 39895383-8816-57ed-9cd7-cc67e4fa5cbf
+		summarizeBy: none
+		sourceColumn: engagement
+
+	column engagement_ponderado
+		dataType: double
+		formatString: 0.00
+		lineageTag: 99cc580f-4d74-5ab9-80fe-14162ac08f4b
+		summarizeBy: none
+		sourceColumn: engagement_ponderado
+
+	partition dim_publicaciones = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_publicaciones.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"publicacion_id", type text}, {"autor_id", type text}, {"fecha_publicacion", type datetime}, {"categoria", type text}, {"tipo", type text}, {"largo_contenido", Int64.Type}, {"n_reacciones", Int64.Type}, {"n_comentarios", Int64.Type}, {"likes_comentarios", type number}, {"pub_fecha", type datetime}, {"pub_hora", Int64.Type}, {"pub_dia_semana_num", Int64.Type}, {"pub_dia_semana", type text}, {"pub_franja", type text}, {"n_hashtags", Int64.Type}, {"engagement", Int64.Type}, {"engagement_ponderado", type number}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,180 @@
+table Medidas
+	lineageTag: d9c312bf-b654-5533-ba1f-b8bf52befced
+
+	/// Total de publicaciones
+	measure Publicaciones = COUNTROWS(dim_publicaciones)
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: 8e0eb023-d0c1-51a8-abca-6772520dd097
+
+	/// Reacciones + comentarios
+	measure Interacciones = COUNTROWS(fact_interacciones)
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: cec7de90-746c-5357-988a-698ce67fb1d8
+
+	measure Reacciones = CALCULATE([Interacciones], fact_interacciones[tipo_interaccion] = "Reacción")
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: bf303893-5829-5e5c-b3c9-be57f409c0cf
+
+	measure Comentarios = CALCULATE([Interacciones], fact_interacciones[tipo_interaccion] = "Comentario")
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: a8d721ba-47fb-5fea-a1fa-fbefaa6c9ab3
+
+	measure 'Likes en comentarios' = SUM(fact_interacciones[likes])
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: 7a44ab66-dbce-5740-b634-a82b94f69907
+
+	measure 'Usuarios registrados' = COUNTROWS(dim_usuarios)
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: 91fdf3a6-c7f4-5c7e-b263-b245310451ed
+
+	/// Usuarios con al menos una reacción o comentario
+	measure 'Usuarios activos' = DISTINCTCOUNT(fact_interacciones[usuario_id])
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: 13698a43-60a8-5cb7-b277-fcba42339b50
+
+	measure 'Reacciones positivas' = CALCULATE([Reacciones], fact_interacciones[sentimiento] = "Positivo")
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: cee68b86-ef71-5f34-acf2-2a1ec4d13090
+
+	measure Campañas = COUNTROWS(dim_campanas)
+		formatString: #,0
+		displayFolder: Base
+		lineageTag: 2dc65eda-3ac7-5e93-b530-7f0b4c3637b9
+
+	/// KPI 1 - Popularidad del contenido: interacciones promedio que recibe cada publicación
+	measure 'KPI Interacciones por publicación' = DIVIDE([Interacciones], [Publicaciones])
+		formatString: 0.00
+		displayFolder: KPI
+		lineageTag: 766bf318-d1c0-5268-bd72-6182642794b2
+
+	/// KPI 2 - Participación: porcentaje de usuarios registrados que interactuó en el período
+	measure 'KPI % Usuarios activos' = DIVIDE([Usuarios activos], [Usuarios registrados])
+		formatString: 0.0%
+		displayFolder: KPI
+		lineageTag: c0c16b11-5dae-5291-93e0-000cee065fac
+
+	/// KPI 3 - Percepción: porcentaje de reacciones Me gusta / Me encanta
+	measure 'KPI % Sentimiento positivo' = DIVIDE([Reacciones positivas], [Reacciones])
+		formatString: 0.0%
+		displayFolder: KPI
+		lineageTag: b5113539-5388-5d0e-8c08-4264cae8da4b
+
+	/// KPI 4 - Impacto de campañas: logro promedio de metas de likes y comentarios
+	measure 'KPI Logro de campañas' = AVERAGE(dim_campanas[pct_logro_promedio])
+		formatString: 0.00%
+		displayFolder: KPI
+		lineageTag: 20c24b7b-c6ba-5a56-9c09-38b7506e9a03
+
+	/// Calidad de datos: interacciones fechadas después de su publicación
+	measure 'KPI % Interacciones consistentes' = DIVIDE(CALCULATE([Interacciones], fact_interacciones[consistente_temporal] = TRUE()), [Interacciones])
+		formatString: 0.0%
+		displayFolder: KPI
+		lineageTag: 35f25b39-734c-50e1-874e-ec59475e1fe4
+
+	measure 'Campañas con logro >= 5%' = CALCULATE([Campañas], dim_campanas[pct_logro_promedio] >= 0.05)
+		formatString: #,0
+		displayFolder: Campañas
+		lineageTag: f92ee59a-7adb-57d1-b87c-b8a8985ec9cc
+
+	measure 'Usuarios alcanzados' = SUM(dim_campanas[usuarios_alcanzados])
+		formatString: #,0
+		displayFolder: Campañas
+		lineageTag: 83dba4cc-0f2d-5508-8b40-43a62a89d6a6
+
+	/// Hora de publicación con más interacciones por publicación
+	measure 'Mejor hora para publicar' = ```
+			VAR t = ADDCOLUMNS(VALUES(dim_publicaciones[pub_hora]), "@e", [KPI Interacciones por publicación])
+			VAR h = MAXX(TOPN(1, t, [@e], DESC), dim_publicaciones[pub_hora])
+			RETURN FORMAT(h, "00") & ":00 h"
+			```
+		displayFolder: Contenido
+		lineageTag: 7efae849-ff00-58a0-97f2-df7fffcde410
+
+	measure 'Mejor día para publicar' = ```
+			VAR t = ADDCOLUMNS(VALUES(dim_publicaciones[pub_dia_semana]), "@e", [KPI Interacciones por publicación])
+			RETURN MAXX(TOPN(1, t, [@e], DESC), dim_publicaciones[pub_dia_semana])
+			```
+		displayFolder: Contenido
+		lineageTag: 64afedc8-7bc1-5745-90d9-06995967e355
+
+	measure 'Publicaciones con hashtag' = COUNTROWS(puente_publicacion_hashtag)
+		formatString: #,0
+		displayFolder: Contenido
+		lineageTag: 960753ee-8544-516c-bd8b-74a5d22603b3
+
+	/// Interacciones promedio de las publicaciones que usan el hashtag
+	measure 'Interacciones por hashtag' = DIVIDE(SUMX(puente_publicacion_hashtag, RELATED(dim_publicaciones[engagement])), [Publicaciones con hashtag])
+		formatString: 0.00
+		displayFolder: Contenido
+		lineageTag: 6f782a96-ee66-522a-b8be-95fe7782d06f
+
+	/// Posición por interacciones; los empates se resuelven por orden alfabético
+	measure 'Ranking usuario' = ```
+			IF(HASONEVALUE(dim_usuarios[usuario_id]),
+			    VAR actual = [Interacciones]
+			    VAR clave = SELECTEDVALUE(dim_usuarios[usuario_id])
+			    VAR t = ADDCOLUMNS(ALLSELECTED(dim_usuarios[usuario_id]), "@i", [Interacciones])
+			    RETURN COUNTROWS(FILTER(t, [@i] > actual || ([@i] = actual && dim_usuarios[usuario_id] < clave))) + 1
+			)
+			```
+		formatString: 0
+		displayFolder: Audiencia
+		lineageTag: a22b8ab3-fbbc-5ec1-aa25-d9bd97b66ea6
+
+	measure 'Interacciones Top 10 usuarios' = IF(NOT ISBLANK([Ranking usuario]) && [Ranking usuario] <= 10, [Interacciones])
+		formatString: #,0
+		displayFolder: Audiencia
+		lineageTag: 2a22bce7-fc57-54f5-bb93-82baf7de6c18
+
+	measure 'Ranking país' = ```
+			IF(HASONEVALUE(dim_usuarios[pais]),
+			    VAR actual = [Interacciones]
+			    VAR clave = SELECTEDVALUE(dim_usuarios[pais])
+			    VAR t = ADDCOLUMNS(ALLSELECTED(dim_usuarios[pais]), "@i", [Interacciones])
+			    RETURN COUNTROWS(FILTER(t, [@i] > actual || ([@i] = actual && dim_usuarios[pais] < clave))) + 1
+			)
+			```
+		formatString: 0
+		displayFolder: Audiencia
+		lineageTag: 400e1d15-58c0-5e5f-be21-806caabe36de
+
+	measure 'Interacciones Top 10 países' = IF(NOT ISBLANK([Ranking país]) && [Ranking país] <= 10, [Interacciones])
+		formatString: #,0
+		displayFolder: Audiencia
+		lineageTag: e7fdd860-0ffb-55fd-8bc5-cf6e8d76db88
+
+	/// Usa la relación inactiva autor -> usuario
+	measure 'Publicaciones por autor' = CALCULATE([Publicaciones], USERELATIONSHIP(dim_publicaciones[autor_id], dim_usuarios[usuario_id]))
+		formatString: #,0
+		displayFolder: Audiencia
+		lineageTag: 687f9937-10c8-5911-bc58-1d3b94977341
+
+	/// Momento de la última ejecución del ETL
+	measure 'Última actualización' = "Datos actualizados: " & FORMAT(MAX(control_ejecucion[ultima_ejecucion]), "dd-mm-yyyy hh:nn")
+		displayFolder: Control
+		lineageTag: 6af4135f-ca28-5293-bc47-6c27e94c936e
+
+	column Columna
+		dataType: string
+		isHidden
+		lineageTag: 20aab00b-b730-5846-96cb-a93737f2b58d
+		summarizeBy: none
+		sourceColumn: Columna
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = #table(type table [Columna = text], {})
+				in
+				    Origen
+
+	annotation PBI_ResultType = Table

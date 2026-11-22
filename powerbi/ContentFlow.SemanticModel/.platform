@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ContentFlow"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2f4b16cf-3fda-4e40-867e-28f7fac97e6e"
+  }
+}

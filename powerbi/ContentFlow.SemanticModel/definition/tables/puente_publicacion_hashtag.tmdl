@@ -1,0 +1,26 @@
+table puente_publicacion_hashtag
+	lineageTag: 17bf94b1-5b53-5dd2-9862-400e26376336
+
+	column publicacion_id
+		dataType: string
+		lineageTag: 75753b4b-552d-593b-904c-28d9b3b5fe4f
+		summarizeBy: none
+		sourceColumn: publicacion_id
+
+	column hashtag
+		dataType: string
+		lineageTag: f8808360-c4e0-5276-8b14-96d8280962f2
+		summarizeBy: none
+		sourceColumn: hashtag
+
+	partition puente_publicacion_hashtag = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "puente_publicacion_hashtag.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"publicacion_id", type text}, {"hashtag", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

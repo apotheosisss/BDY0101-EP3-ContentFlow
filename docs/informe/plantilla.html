@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe técnico parcial — ContentFlow (EP3 BDY0101)</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+  :root { --azul:#1f4e79; --azul2:#2e75b6; --gris:#5f6b7a; --borde:#d5dbe3; --suave:#f3f6fa; --acento:#c55a11; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Calibri, Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color:#1d2530; margin:0; }
+  h1 { font-size: 20pt; color: var(--azul); margin: 0 0 4mm; }
+  h2 { font-size: 14pt; color: var(--azul); border-bottom: 2px solid var(--azul2); padding-bottom: 1.5mm; margin: 8mm 0 3mm; break-after: avoid; }
+  h3 { font-size: 11.5pt; color: var(--azul2); margin: 5mm 0 2mm; break-after: avoid; }
+  p { margin: 0 0 2.5mm; text-align: justify; }
+  ul, ol { margin: 0 0 3mm; padding-left: 6mm; }
+  li { margin-bottom: 1mm; }
+  table { width:100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 9pt; break-inside: auto; }
+  th { background: var(--azul); color: #fff; text-align: left; padding: 1.6mm 2mm; font-weight: 600; }
+  td { border-bottom: 1px solid var(--borde); padding: 1.4mm 2mm; vertical-align: top; }
+  tr { break-inside: avoid; }
+  tr:nth-child(even) td { background: var(--suave); }
+  code, pre { font-family: Consolas, "Cascadia Mono", monospace; font-size: 8.4pt; }
+  code { background: var(--suave); padding: 0 1mm; border-radius: 2px; }
+  pre { background: #f6f8fa; border: 1px solid var(--borde); border-left: 3px solid var(--azul2); padding: 2.5mm 3mm; white-space: pre-wrap; margin: 2mm 0 4mm; break-inside: avoid; }
+  .portada { height: 255mm; display:flex; flex-direction:column; justify-content:space-between; break-after: page; }
+  .portada .marca { color: var(--gris); font-size: 10pt; letter-spacing: .5px; }
+  .portada .titulo { margin-top: 45mm; }
+  .portada .titulo h1 { font-size: 28pt; line-height: 1.15; }
+  .portada .titulo .sub { font-size: 14pt; color: var(--azul2); }
+  .portada table td { border: none; padding: 1mm 0; background: none !important; font-size: 10.5pt; }
+  .portada table td:first-child { color: var(--gris); width: 45mm; }
+  .indice ol { columns: 2; column-gap: 10mm; font-size: 10pt; }
+  .kpis { display:grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 3mm 0 4mm; }
+  .kpi { border:1px solid var(--borde); border-top: 3px solid var(--azul2); padding: 2.5mm; border-radius: 2px; break-inside: avoid; }
+  .kpi .v { font-size: 17pt; font-weight: 600; color: var(--azul); }
+  .kpi .n { font-size: 8.5pt; color: var(--gris); }
+  .nota { background: #fff7ef; border-left: 3px solid var(--acento); padding: 2.5mm 3mm; margin: 2mm 0 4mm; font-size: 9.5pt; break-inside: avoid; }
+  figure { margin: 3mm 0 5mm; break-inside: avoid; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid var(--borde); }
+  figcaption { font-size: 8.5pt; color: var(--gris); margin-top: 1.5mm; }
+  .salto { break-before: page; }
+  .dos { display:grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  svg text { font-family: "Segoe UI", Calibri, Arial, sans-serif; }
+  .pequeno { font-size: 8.5pt; color: var(--gris); }
+</style>
+</head>
+<body>
+
+<!-- ============================== PORTADA ============================== -->
+<section class="portada">
+  <div class="marca">DUOC UC · BDY0101 Base de Datos No Relacionales · Evaluación Parcial N°3</div>
+  <div class="titulo">
+    <h1>Explotación de datos NoSQL para el análisis organizacional</h1>
+    <div class="sub">Informe técnico parcial — Caso ContentFlow (Forma A)</div>
+  </div>
+  <table>
+    <tr><td>Integrantes</td><td>[Nombre integrante 1] · [Nombre integrante 2]</td></tr>
+    <tr><td>Docente</td><td>[Nombre docente]</td></tr>
+    <tr><td>Sección</td><td>[Sección]</td></tr>
+    <tr><td>Repositorio</td><td>https://github.com/apotheosisss/BDY0101-EP3-ContentFlow</td></tr>
+    <tr><td>Fecha</td><td>{{FECHA}}</td></tr>
+    <tr><td>Fuente de datos</td><td>Azure Cosmos DB (API para MongoDB 4.2)</td></tr>
+    <tr><td>Herramienta BI</td><td>Microsoft Power BI Desktop (proyecto .pbip)</td></tr>
+  </table>
+</section>
+
+<section class="indice">
+  <h2>Contenido</h2>
+  <ol>
+    <li>Objetivos del proyecto</li>
+    <li>Necesidad cubierta</li>
+    <li>Diagrama de arquitectura del flujo de datos</li>
+    <li>Proceso de extracción de datos</li>
+    <li>Transformación y documentación del proceso</li>
+    <li>Selección e integración en Power BI</li>
+    <li>Modelo de datos para el dashboard</li>
+    <li>Diseño del dashboard y visualizaciones</li>
+    <li>Implementación de KPI</li>
+    <li>Automatización y actualización</li>
+    <li>Hallazgos y recomendaciones</li>
+    <li>Boceto del dashboard final y KPIs proyectados</li>
+    <li>Limitaciones</li>
+    <li>Anexo: ejecución y evidencias</li>
+  </ol>
+</section>
+
+<!-- ============================== 1 ============================== -->
+<h2>1. Objetivos del proyecto</h2>
+<h3>Contexto</h3>
+<p>ContentFlow es una plataforma digital donde los usuarios crean publicaciones, reaccionan, comentan y participan en campañas interactivas. Durante el último año la plataforma registró sus interacciones en una base de datos documental MongoDB con cinco colecciones: <code>usuarios</code>, <code>publicaciones</code>, <code>reacciones</code>, <code>comentarios</code> y <code>campañas</code>. En la Evaluación Parcial 1 se modeló esa base; en esta etapa los datos se explotan para apoyar decisiones.</p>
+<h3>Problema</h3>
+<p>La gerencia no tiene una vista consolidada de la actividad. La información está distribuida en documentos con estructuras anidadas (arreglos de hashtags y de publicaciones asociadas, objetos de métricas objetivo) y fechas almacenadas como texto, lo que impide responder directamente preguntas como <em>¿quiénes son los usuarios más activos?</em>, <em>¿qué contenido y qué horarios generan más interacción?</em> o <em>¿las campañas cumplen sus metas?</em></p>
+<h3>Objetivo general</h3>
+<p>Extraer, transformar y visualizar los datos de la base MongoDB de ContentFlow para construir un tablero interactivo en Power BI que respalde decisiones sobre diseño de contenido, horarios de publicación, perfil de audiencia y éxito de las campañas.</p>
+<h3>Objetivos específicos</h3>
+<ol>
+  <li>Conectar con la base NoSQL alojada en Azure Cosmos DB mediante Python y PyMongo, y extraer las cinco colecciones con consultas y <em>pipelines</em> de agregación.</li>
+  <li>Transformar las estructuras no relacionales (anidamientos, tipos, inconsistencias) en un modelo estrella apto para análisis, documentando cada transformación.</li>
+  <li>Diseñar un tablero de cuatro páginas con al menos cuatro KPIs calculados en DAX.</li>
+  <li>Dejar el flujo reproducible y actualizable con un solo comando, demostrable en vivo.</li>
+</ol>
+<h3>Motivación</h3>
+<p>Una plataforma de contenido vive de la participación. Medirla permite priorizar los formatos y temas que la comunidad valora, publicar en los momentos de mayor respuesta, reactivar a los usuarios inactivos y reasignar el presupuesto de campañas hacia las que realmente generan interacción.</p>
+
+<!-- ============================== 2 ============================== -->
+<h2>2. Necesidad cubierta</h2>
+<p>El análisis responde a cuatro preguntas de negocio planteadas por la gerencia. Cada una se asocia a un área funcional, a una decisión concreta y a la página del tablero que la responde:</p>
+<table>
+  <tr><th style="width:23%">Pregunta de negocio</th><th style="width:15%">Área funcional</th><th>Decisión que habilita</th><th style="width:17%">Dónde se responde</th></tr>
+  <tr><td>¿Qué contenido es más popular?</td><td>Contenido / editorial</td><td>Priorizar categorías, formatos (imagen, video, texto) y hashtags con más interacciones por publicación.</td><td>Resumen · Contenido</td></tr>
+  <tr><td>¿Cuándo conviene publicar?</td><td>Contenido / marketing</td><td>Definir el calendario editorial por hora y día de la semana.</td><td>Contenido y horarios</td></tr>
+  <tr><td>¿Quién es la audiencia y quiénes son los usuarios más activos?</td><td>Comunidad / retención</td><td>Segmentar por país, dispositivo y género; identificar embajadores y usuarios inactivos para estrategias de retención.</td><td>Audiencia</td></tr>
+  <tr><td>¿Tienen éxito las campañas?</td><td>Marketing / gerencia</td><td>Comparar el logro de metas por objetivo y por número de publicaciones asociadas; reasignar presupuesto.</td><td>Campañas</td></tr>
+</table>
+<p>El tablero reemplaza consultas ad hoc sobre la base por indicadores que se actualizan desde la fuente, de modo que las decisiones se apoyan en datos vigentes y no en percepciones.</p>
+
+<!-- ============================== 3 ============================== -->
+<h2 class="salto">3. Diagrama de arquitectura del flujo de datos</h2>
+<p>El flujo tiene tres etapas: <strong>fuente</strong> (Cosmos DB), <strong>transformación</strong> (Python) y <strong>visualización</strong> (Power BI). Los CSV intermedios desacoplan la base de datos del tablero.</p>
+<figure>
+<svg viewBox="0 0 900 430" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e75b6"/></marker>
+  </defs>
+  <!-- carriles -->
+  <rect x="5" y="5" width="210" height="330" rx="6" fill="#eef4fb" stroke="#c9d9ec"/>
+  <rect x="230" y="5" width="300" height="330" rx="6" fill="#f4f8f1" stroke="#d3e3c7"/>
+  <rect x="545" y="5" width="350" height="330" rx="6" fill="#fbf4ee" stroke="#ecd6c3"/>
+  <text x="110" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#1f4e79">1. FUENTE</text>
+  <text x="380" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#38761d">2. TRANSFORMACIÓN</text>
+  <text x="720" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#b45f06">3. VISUALIZACIÓN</text>
+
+  <!-- fuente -->
+  <rect x="25" y="45" width="170" height="52" rx="4" fill="#fff" stroke="#9fb6d0"/>
+  <text x="110" y="66" text-anchor="middle" font-size="11.5" font-weight="600">Anexo Forma A (JSON)</text>
+  <text x="110" y="83" text-anchor="middle" font-size="10" fill="#5f6b7a">5 archivos · 2.500 docs</text>
+  <text x="110" y="120" text-anchor="middle" font-size="10" fill="#5f6b7a">cargar_datos.py</text>
+  <line x1="110" y1="97" x2="110" y2="140" stroke="#2e75b6" stroke-width="2" marker-end="url(#fl)"/>
+  <rect x="25" y="142" width="170" height="150" rx="4" fill="#fff" stroke="#1f4e79" stroke-width="1.5"/>
+  <text x="110" y="163" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f4e79">Azure Cosmos DB</text>
+  <text x="110" y="178" text-anchor="middle" font-size="10" fill="#5f6b7a">API MongoDB 4.2 · serverless</text>
+  <text x="110" y="191" text-anchor="middle" font-size="10" fill="#5f6b7a">West US · BD contentflow</text>
+  <text x="40" y="214" font-size="10">• usuarios (500)</text>
+  <text x="40" y="229" font-size="10">• publicaciones (500)</text>
+  <text x="40" y="244" font-size="10">• reacciones (500)</text>
+  <text x="40" y="259" font-size="10">• comentarios (500)</text>
+  <text x="40" y="274" font-size="10">• campanas (500)</text>
+
+  <!-- transformacion -->
+  <rect x="250" y="45" width="260" height="110" rx="4" fill="#fff" stroke="#93c47d"/>
+  <text x="380" y="65" text-anchor="middle" font-size="11.5" font-weight="700" fill="#38761d">Extracción · PyMongo</text>
+  <text x="262" y="84" font-size="10">Consultas Q1–Q6 ejecutadas en el servidor:</text>
+  <text x="262" y="100" font-size="10">find + proyección · $lookup · $unwind</text>
+  <text x="262" y="115" font-size="10">$group · $project · $size · $sum</text>
+  <text x="262" y="131" font-size="10">conexión TLS (puerto 10255), credencial en .env</text>
+  <text x="262" y="146" font-size="10" fill="#5f6b7a">etl_contentflow.py · extraer()</text>
+  <line x1="195" y1="200" x2="248" y2="100" stroke="#2e75b6" stroke-width="2" marker-end="url(#fl)"/>
+  <line x1="380" y1="155" x2="380" y2="178" stroke="#2e75b6" stroke-width="2" marker-end="url(#fl)"/>
+  <rect x="250" y="180" width="260" height="112" rx="4" fill="#fff" stroke="#93c47d"/>
+  <text x="380" y="200" text-anchor="middle" font-size="11.5" font-weight="700" fill="#38761d">Transformación · pandas</text>
+  <text x="262" y="219" font-size="10">Tipos: texto ISO → datetime</text>
+  <text x="262" y="234" font-size="10">Desanidado: hashtags, publicaciones asociadas</text>
+  <text x="262" y="249" font-size="10">Limpieza: duplicados, integridad, marca temporal</text>
+  <text x="262" y="264" font-size="10">Derivadas: hora, franja, sentimiento, logro</text>
+  <text x="262" y="282" font-size="10" fill="#5f6b7a">21 pasos registrados en bitácora</text>
+
+  <!-- visualizacion -->
+  <rect x="565" y="45" width="140" height="110" rx="4" fill="#fff" stroke="#e6b98f"/>
+  <text x="635" y="65" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b45f06">data/processed</text>
+  <text x="635" y="82" text-anchor="middle" font-size="10" fill="#5f6b7a">CSV UTF-8 (archivo</text>
+  <text x="635" y="95" text-anchor="middle" font-size="10" fill="#5f6b7a">intermedio)</text>
+  <text x="577" y="114" font-size="10">4 dimensiones · 1 hecho</text>
+  <text x="577" y="128" font-size="10">2 puentes · control</text>
+  <text x="577" y="142" font-size="10">bitácora</text>
+  <line x1="510" y1="236" x2="563" y2="110" stroke="#2e75b6" stroke-width="2" marker-end="url(#fl)"/>
+  <line x1="705" y1="100" x2="733" y2="100" stroke="#2e75b6" stroke-width="2" marker-end="url(#fl)"/>
+  <rect x="735" y="45" width="145" height="247" rx="4" fill="#fff" stroke="#b45f06" stroke-width="1.5"/>
+  <text x="807" y="65" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b45f06">Power BI Desktop</text>
+  <text x="747" y="88" font-size="10">Power Query</text>
+  <text x="747" y="101" font-size="9.5" fill="#5f6b7a">parámetro RutaDatos</text>
+  <text x="747" y="124" font-size="10">Modelo estrella</text>
+  <text x="747" y="137" font-size="9.5" fill="#5f6b7a">8 relaciones</text>
+  <text x="747" y="160" font-size="10">26 medidas DAX</text>
+  <text x="747" y="173" font-size="9.5" fill="#5f6b7a">4 KPIs + calidad</text>
+  <text x="747" y="196" font-size="10">Tablero (4 páginas)</text>
+  <text x="747" y="209" font-size="9.5" fill="#5f6b7a">segmentadores y</text>
+  <text x="747" y="222" font-size="9.5" fill="#5f6b7a">filtrado cruzado</text>
+  <text x="747" y="248" font-size="10">Proyecto .pbip</text>
+  <text x="747" y="261" font-size="9.5" fill="#5f6b7a">texto versionable</text>
+  <text x="747" y="274" font-size="9.5" fill="#5f6b7a">(TMDL + PBIR)</text>
+  <rect x="565" y="180" width="140" height="112" rx="4" fill="#fff" stroke="#e6b98f"/>
+  <text x="635" y="200" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b45f06">Gerencia</text>
+  <text x="577" y="220" font-size="10">Contenido</text>
+  <text x="577" y="235" font-size="10">Marketing</text>
+  <text x="577" y="250" font-size="10">Comunidad</text>
+  <text x="577" y="272" font-size="9.5" fill="#5f6b7a">decisiones</text>
+  <line x1="735" y1="236" x2="707" y2="236" stroke="#2e75b6" stroke-width="2" marker-end="url(#fl)"/>
+
+  <!-- automatizacion -->
+  <rect x="5" y="350" width="890" height="74" rx="6" fill="#f7f7f9" stroke="#c8ccd4" stroke-dasharray="5 4"/>
+  <text x="20" y="372" font-size="12" font-weight="700" fill="#1f4e79">Automatización</text>
+  <text x="20" y="392" font-size="10">actualizar.ps1: ejecuta el ETL y registra en logs/ · registrar_tarea.ps1 (opcional): Programador de tareas, cada hora</text>
+  <text x="20" y="409" font-size="10">preparar_equipo.ps1: configura cualquier PC en un paso · demo_en_vivo.py: inserta/revierte datos para demostrar la actualización</text>
+</svg>
+<figcaption>Figura 1. Arquitectura del flujo de datos: fuente → transformación → visualización.</figcaption>
+</figure>
+
+<!-- ============================== 4 ============================== -->
+<h2>4. Proceso de extracción de datos</h2>
+<h3>4.1 Conexión con la base NoSQL</h3>
+<p>La base se aloja en una cuenta <strong>Azure Cosmos DB con API para MongoDB</strong> (versión de servidor 4.2, modo <em>serverless</em>, región West US). Se eligió Azure porque el equipo cuenta con suscripción Azure for Students y la pauta acepta Cosmos DB como alternativa a MongoDB Atlas. El modo serverless cobra solo por las operaciones realizadas, lo que para 2.500 documentos significa un costo de centavos. La región West US se escogió porque la política de la suscripción solo permite cinco regiones y las cercanas (Chile Central, Brazil South) estaban bloqueadas o sin capacidad.</p>
+<p>La conexión se hace con <strong>Python 3.12 + PyMongo 4.10</strong>. La versión 4.10 es la última compatible con servidores MongoDB 4.2 (las posteriores exigen 4.4 o superior). La cadena de conexión, que incluye la clave de la cuenta, se lee desde un archivo <code>.env</code> excluido del repositorio:</p>
+<pre>load_dotenv(RAIZ / ".env")
+cliente = MongoClient(os.environ["MONGO_URI"], serverSelectionTimeoutMS=20000)
+db = cliente[os.environ.get("MONGO_DB", "contentflow")]
+# URI: mongodb://&lt;cuenta&gt;:&lt;clave&gt;@&lt;cuenta&gt;.mongo.cosmos.azure.com:10255/?ssl=true&amp;retrywrites=false...</pre>
+<p>La carga inicial (<code>cargar_datos.py</code>) inserta los JSON del anexo por lotes de 100 documentos con reintentos ante el error 16500 de Cosmos DB (límite de solicitudes) y crea índices en <code>usuario_id</code> y <code>publicacion_id</code> para acelerar los cruces.</p>
+
+<h3>4.2 Consultas de extracción</h3>
+<p>Las consultas se ejecutan <strong>en el servidor</strong>: los cruces y agregaciones viajan como <em>pipelines</em>, y solo se transfieren los campos necesarios. Se consultan las cinco colecciones.</p>
+<table>
+  <tr><th style="width:7%">#</th><th style="width:17%">Colección</th><th>Operación y propósito</th></tr>
+  <tr><td>Q1</td><td>usuarios</td><td><code>find</code> con proyección: excluye <code>nombre</code> y trae el correo solo para derivar su dominio (minimización de datos personales).</td></tr>
+  <tr><td>Q2</td><td>publicaciones</td><td>Pipeline con dos <code>$lookup</code> (reacciones y comentarios) y <code>$project</code> con <code>$size</code>, <code>$sum</code> y <code>$strLenCP</code>: entrega cada publicación con su número de reacciones, comentarios, likes recibidos y largo del contenido.</td></tr>
+  <tr><td>Q3</td><td>reacciones</td><td><code>find</code> con proyección explícita de los cinco campos del caso.</td></tr>
+  <tr><td>Q4</td><td>comentarios</td><td><code>$project</code> que reemplaza el texto del comentario por su largo (no se necesita el texto para los KPIs).</td></tr>
+  <tr><td>Q5</td><td>campanas</td><td>Dos pipelines: <code>$unwind</code> del arreglo <code>publicaciones_asociadas</code> (tabla puente) y <code>$project</code> que aplana el objeto anidado <code>metricas_objetivo</code> y cuenta publicaciones con <code>$size</code>.</td></tr>
+  <tr><td>Q6</td><td>publicaciones</td><td><code>$unwind</code> de <code>hashtags</code> + <code>$group</code> por categoría y hashtag: uso de cada hashtag por categoría.</td></tr>
+</table>
+<p>Ejemplo — publicaciones con sus métricas de interacción (Q2):</p>
+<pre>db.publicaciones.aggregate([
+  {"$lookup": {"from": "reacciones",  "localField": "_id", "foreignField": "publicacion_id", "as": "r"}},
+  {"$lookup": {"from": "comentarios", "localField": "_id", "foreignField": "publicacion_id", "as": "c"}},
+  {"$project": {
+      "usuario_id": 1, "fecha_publicacion": 1, "categoria": 1, "tipo": 1, "hashtags": 1,
+      "largo_contenido":   {"$strLenCP": "$contenido"},
+      "n_reacciones":      {"$size": "$r"},
+      "n_comentarios":     {"$size": "$c"},
+      "likes_comentarios": {"$sum": "$c.likes"}}}])</pre>
+<p>Ejemplo — desanidado de campañas y aplanado de métricas (Q5):</p>
+<pre>db.campanas.aggregate([
+  {"$unwind": "$publicaciones_asociadas"},
+  {"$project": {"_id": 0, "campana_id": "$_id", "publicacion_id": "$publicaciones_asociadas"}}])
+
+db.campanas.aggregate([{"$project": {
+  "nombre": 1, "objetivo": 1, "fecha_inicio": 1, "fecha_fin": 1,
+  "meta_likes": "$metricas_objetivo.likes",
+  "meta_comentarios": "$metricas_objetivo.comentarios",
+  "meta_compartidos": "$metricas_objetivo.compartidos",
+  "n_publicaciones": {"$size": "$publicaciones_asociadas"}}}])</pre>
+<p><strong>Verificación:</strong> la suma de <code>n_reacciones</code> y <code>n_comentarios</code> obtenida con <code>$lookup</code> coincide con el total de cada colección (500 y 500). El desanidado de campañas produce 1.487 pares campaña–publicación, todos con publicación existente.</p>
+
+<!-- ============================== 5 ============================== -->
+<h2 class="salto">5. Transformación y documentación del proceso</h2>
+<h3>5.1 Perfilamiento previo</h3>
+<p>Antes de transformar se perfilaron los datos para decidir qué limpieza aplicar:</p>
+<ul>
+  <li>Sin valores nulos ni vacíos y sin identificadores repetidos en las cinco colecciones; sin referencias huérfanas.</li>
+  <li>Todas las fechas almacenadas como <strong>texto</strong> ISO-8601.</li>
+  <li><strong>495 interacciones (49,5 %)</strong> tienen fecha anterior a la de su publicación: es una inconsistencia de origen.</li>
+  <li><strong>1 reacción duplicada</strong> (mismo usuario y misma publicación).</li>
+  <li><strong>108 campañas</strong> comparten nombre con otra (392 nombres distintos para 500 campañas).</li>
+  <li>El nombre del archivo <code>campañas.json</code> venía con la ñ mal codificada; la colección se cargó como <code>campanas</code>.</li>
+  <li>La métrica objetivo <code>compartidos</code> existe en las campañas, pero ninguna colección registra acciones de compartir.</li>
+</ul>
+<h3>5.2 Bitácora de transformaciones</h3>
+<p>Cada transformación queda registrada automáticamente por el ETL en <code>data/processed/bitacora_transformaciones.csv</code> con su tipo, justificación y número de registros afectados. Tipos: <strong>estructural</strong> (cambia la forma de los datos), <strong>semántica</strong> (agrega significado de negocio), <strong>formato</strong> (cambia el tipo) y <strong>limpieza</strong> (corrige o marca problemas de calidad).</p>
+{{BITACORA}}
+<div class="nota"><strong>Decisión sobre las fechas inconsistentes.</strong> Eliminar el 49,5 % de las interacciones habría sesgado todos los indicadores. Se optó por <strong>marcarlas</strong> (<code>consistente_temporal</code>) y exponer su proporción como indicador de calidad en el tablero, de modo que el usuario puede filtrarlas y el área de TI tiene una medida del problema que debe corregir en la aplicación de origen.</div>
+<h3>5.3 Resultado: tablas para el análisis</h3>
+<table>
+  <tr><th style="width:30%">Tabla</th><th style="width:12%">Filas</th><th>Contenido</th></tr>
+  {{TABLAS}}
+</table>
+
+<!-- ============================== 6 ============================== -->
+<h2 class="salto">6. Selección e integración en Power BI</h2>
+<h3>6.1 Justificación de la herramienta</h3>
+<p>Se eligió <strong>Microsoft Power BI Desktop</strong> por las siguientes características técnicas y funcionales, contrastadas con los requerimientos del caso:</p>
+<table>
+  <tr><th style="width:26%">Característica</th><th>Por qué responde a los requerimientos de ContentFlow</th></tr>
+  <tr><td>1. Power Query (ETL integrado)</td><td>Importa los CSV con tipos y cultura explícitos, y usa un parámetro (<code>RutaDatos</code>) para que el mismo tablero funcione en cualquier equipo sin rehacer conexiones.</td></tr>
+  <tr><td>2. Motor columnar VertiPaq y modelo relacional</td><td>Permite modelar en estrella las estructuras que en MongoDB estaban anidadas: tablas puente para relaciones muchos-a-muchos (hashtags, campañas) y relaciones inactivas activables con <code>USERELATIONSHIP</code>.</td></tr>
+  <tr><td>3. Lenguaje DAX</td><td>Los KPIs se definen una vez como medidas y se recalculan según el contexto de filtro (país, mes, dispositivo, categoría), incluidos rankings sin empates y la detección de la mejor hora de publicación.</td></tr>
+  <tr><td>4. Interactividad nativa</td><td>Segmentadores, filtrado cruzado entre visuales y detalle al pasar el cursor, sin programación: la gerencia explora los datos por su cuenta.</td></tr>
+  <tr><td>5. Actualización y publicación</td><td>El botón Actualizar recarga los datos desde la fuente; publicado en Power BI Service admite actualización programada mediante puerta de enlace.</td></tr>
+  <tr><td>6. Proyecto en texto (.pbip)</td><td>El modelo (TMDL) y el informe (PBIR) se guardan como archivos de texto versionables en Git, lo que deja evidencia del desarrollo en el repositorio.</td></tr>
+  <tr><td>7. Costo y ecosistema</td><td>Desktop es gratuito y se integra con Azure, donde reside la base de datos.</td></tr>
+</table>
+<p class="pequeno">Alternativas consideradas: Tableau (licencia de pago para escritorio), Looker Studio (orientado a fuentes en la nube de Google; modelado relacional limitado) y Metabase (requiere servidor propio). Power BI cubre los requerimientos con menor costo y mejor integración con Azure.</p>
+<h3>6.2 Método de conexión: archivo intermedio</h3>
+<p>Se evaluaron tres métodos para llevar los datos de Cosmos DB a Power BI:</p>
+<table>
+  <tr><th style="width:24%">Método</th><th>Evaluación</th><th style="width:13%">Decisión</th></tr>
+  <tr><td>Conector directo de Power BI</td><td>El conector Azure Cosmos DB de Power BI está orientado a la API NoSQL; para la API de MongoDB requiere un controlador ODBC de terceros que aplana los documentos sin control sobre la transformación.</td><td>Descartado</td></tr>
+  <tr><td>Script de Python como origen en Power BI</td><td>Exige Python configurado dentro de Power BI en cada equipo y una puerta de enlace personal para actualizar en el servicio.</td><td>Descartado</td></tr>
+  <tr><td><strong>Archivo intermedio CSV</strong></td><td>El ETL en Python genera CSV que Power BI importa. Desacopla base y tablero, deja la transformación versionada y auditable, y permite trabajar sin conexión durante la presentación.</td><td><strong>Elegido</strong></td></tr>
+</table>
+<h3>6.3 Proceso de carga</h3>
+<ol>
+  <li>El ETL escribe los CSV en UTF-8 con BOM para que Power BI respete tildes y ñ.</li>
+  <li>Cada tabla se importa con una consulta de Power Query que lee el archivo desde <code>RutaDatos</code>, promueve encabezados y asigna tipos con cultura <code>en-US</code> (punto decimal y fechas ISO), independiente del idioma del equipo.</li>
+  <li>Las columnas de día de semana se ordenan por su número (lunes a domingo) y las columnas técnicas se ocultan.</li>
+</ol>
+<pre>let
+    Origen = Csv.Document(File.Contents(RutaDatos &amp; "fact_interacciones.csv"),
+             [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Encabezados, {{"fecha_hora", type datetime}, {"hora", Int64.Type}, ...}, "en-US")
+in
+    Tipos</pre>
+
+<!-- ============================== 7 ============================== -->
+<h2 class="salto">7. Modelo de datos para el dashboard</h2>
+<p>Los documentos se reorganizaron en un <strong>modelo estrella</strong>. La tabla de hechos <code>fact_interacciones</code> unifica reacciones y comentarios (cada fila es una interacción de un usuario sobre una publicación en un momento), rodeada de dimensiones descriptivas. Los arreglos anidados de MongoDB se convirtieron en tablas puente.</p>
+<figure>
+<svg viewBox="0 0 900 400" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="uno" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f4e79"/></marker></defs>
+  <g font-size="10">
+  <!-- hecho -->
+  <rect x="340" y="150" width="210" height="120" rx="4" fill="#fdf0e3" stroke="#b45f06" stroke-width="2"/>
+  <text x="445" y="170" text-anchor="middle" font-weight="700" font-size="12" fill="#b45f06">fact_interacciones</text>
+  <text x="352" y="188">interaccion_id · tipo · subtipo</text>
+  <text x="352" y="203">usuario_id · publicacion_id · fecha</text>
+  <text x="352" y="218">hora · franja · sentimiento · likes</text>
+  <text x="352" y="233">consistente_temporal</text>
+  <text x="352" y="258" fill="#5f6b7a">999 filas</text>
+  <!-- dims -->
+  <rect x="40" y="40" width="200" height="95" rx="4" fill="#eaf1fa" stroke="#1f4e79"/>
+  <text x="140" y="60" text-anchor="middle" font-weight="700" font-size="12" fill="#1f4e79">dim_usuarios</text>
+  <text x="52" y="78">usuario_id (PK) · país · género</text>
+  <text x="52" y="93">dispositivo · dominio · cohorte</text>
+  <text x="52" y="108">antigüedad_dias</text>
+  <text x="52" y="125" fill="#5f6b7a">500 filas</text>
+  <rect x="40" y="290" width="200" height="80" rx="4" fill="#eaf1fa" stroke="#1f4e79"/>
+  <text x="140" y="310" text-anchor="middle" font-weight="700" font-size="12" fill="#1f4e79">dim_fecha</text>
+  <text x="52" y="328">fecha (PK) · mes · trimestre</text>
+  <text x="52" y="343">día de semana</text>
+  <text x="52" y="360" fill="#5f6b7a">730 filas</text>
+  <rect x="610" y="140" width="250" height="140" rx="4" fill="#eaf1fa" stroke="#1f4e79"/>
+  <text x="735" y="160" text-anchor="middle" font-weight="700" font-size="12" fill="#1f4e79">dim_publicaciones</text>
+  <text x="622" y="178">publicacion_id (PK) · autor_id</text>
+  <text x="622" y="193">categoría · tipo · pub_fecha</text>
+  <text x="622" y="208">pub_hora · pub_dia_semana · franja</text>
+  <text x="622" y="223">n_reacciones · n_comentarios</text>
+  <text x="622" y="238">engagement · n_hashtags</text>
+  <text x="622" y="268" fill="#5f6b7a">500 filas</text>
+  <rect x="610" y="20" width="250" height="60" rx="4" fill="#f1f1f1" stroke="#7f7f7f"/>
+  <text x="735" y="40" text-anchor="middle" font-weight="700" font-size="11.5">puente_publicacion_hashtag</text>
+  <text x="622" y="58">publicacion_id · hashtag</text>
+  <text x="622" y="72" fill="#5f6b7a">1.018 filas</text>
+  <rect x="610" y="320" width="250" height="60" rx="4" fill="#f1f1f1" stroke="#7f7f7f"/>
+  <text x="735" y="340" text-anchor="middle" font-weight="700" font-size="11.5">puente_campana_publicacion</text>
+  <text x="622" y="358">campana_id · publicacion_id</text>
+  <text x="622" y="372" fill="#5f6b7a">1.487 filas</text>
+  <rect x="340" y="310" width="210" height="80" rx="4" fill="#eaf1fa" stroke="#1f4e79"/>
+  <text x="445" y="330" text-anchor="middle" font-weight="700" font-size="12" fill="#1f4e79">dim_campanas</text>
+  <text x="352" y="348">campana_id (PK) · objetivo · metas</text>
+  <text x="352" y="363">logrado · pct_logro · estado</text>
+  <text x="352" y="380" fill="#5f6b7a">500 filas</text>
+  <rect x="340" y="25" width="210" height="60" rx="4" fill="#fff" stroke="#9aa5b1" stroke-dasharray="4 3"/>
+  <text x="445" y="45" text-anchor="middle" font-weight="700" font-size="11.5">Medidas · control_ejecucion</text>
+  <text x="445" y="63" text-anchor="middle" fill="#5f6b7a">26 medidas DAX · fecha del ETL</text>
+  </g>
+  <!-- relaciones activas: de muchos (origen) a uno (flecha) -->
+  <g stroke="#1f4e79" stroke-width="1.8" fill="none">
+    <line x1="340" y1="175" x2="242" y2="110" marker-end="url(#uno)"/>
+    <line x1="340" y1="250" x2="242" y2="320" marker-end="url(#uno)"/>
+    <line x1="550" y1="210" x2="608" y2="210" marker-end="url(#uno)"/>
+    <line x1="735" y1="80" x2="735" y2="138" marker-end="url(#uno)"/>
+    <line x1="735" y1="320" x2="735" y2="282" marker-end="url(#uno)"/>
+    <line x1="610" y1="355" x2="552" y2="355" marker-end="url(#uno)"/>
+  </g>
+  <!-- inactivas -->
+  <g stroke="#9aa5b1" stroke-width="1.5" fill="none" stroke-dasharray="5 4">
+    <path d="M610,150 C450,120 300,60 242,70"/>
+    <path d="M610,270 C560,292 300,286 242,332"/>
+  </g>
+  <text x="560" y="104" font-size="9.5" fill="#7f8a96" text-anchor="end">autor → usuario (inactiva)</text>
+  <text x="600" y="303" font-size="9.5" fill="#7f8a96" text-anchor="end">pub_fecha → fecha (inactiva)</text>
+</svg>
+<figcaption>Figura 2. Modelo estrella. Flecha = relación de muchos a uno (la punta indica el lado “uno”); línea discontinua = relación inactiva.</figcaption>
+</figure>
+<h3>Decisiones de modelado</h3>
+<ul>
+  <li><strong>Un solo hecho para dos colecciones.</strong> Reacciones y comentarios se unieron en <code>fact_interacciones</code> con una columna <code>tipo_interaccion</code>. Así “interacciones” se mide de forma única y se puede separar por tipo cuando se necesita.</li>
+  <li><strong>Tablas puente para los arreglos.</strong> Power BI no puede filtrar sobre listas guardadas en una celda. <code>hashtags</code> y <code>publicaciones_asociadas</code> se desanidaron en tablas puente de dos columnas.</li>
+  <li><strong>Relaciones inactivas para evitar ambigüedad.</strong> <code>dim_publicaciones</code> también se relaciona con usuarios (autor) y con fechas (fecha de publicación). Si estuvieran activas existirían dos caminos de filtro desde el hecho hasta la misma dimensión; se dejan inactivas y se activan con <code>USERELATIONSHIP</code> en la medida que las necesita.</li>
+  <li><strong>Filtro en una sola dirección.</strong> Todas las relaciones filtran de la dimensión al hecho, lo que mantiene el modelo predecible y rápido.</li>
+  <li><strong>Métricas de campaña precalculadas.</strong> El logro de cada campaña depende de su propia ventana de fechas; se calcula en el ETL y se guarda en <code>dim_campanas</code>.</li>
+  <li><strong>Tabla calendario continua</strong> (<code>dim_fecha</code>) para analizar tendencias por mes sin huecos.</li>
+</ul>
+
+<!-- ============================== 8 ============================== -->
+<h2 class="salto">8. Diseño del dashboard y visualizaciones</h2>
+<h3>8.1 Decisiones generales de diseño</h3>
+<ul>
+  <li><strong>Lectura en Z:</strong> arriba los filtros, luego las tarjetas KPI (lo primero que busca la gerencia) y abajo los gráficos de detalle.</li>
+  <li><strong>Segmentadores comunes</strong> (mes, país, dispositivo, categoría) en la misma posición en las páginas 1 a 3, para que el usuario no tenga que reubicarlos.</li>
+  <li><strong>Una pregunta de negocio por página:</strong> Resumen, Contenido y horarios, Audiencia, Campañas.</li>
+  <li><strong>Color con propósito:</strong> un solo tono para medidas únicas y colores distintos solo cuando se comparan series (reacción frente a comentario, tipos de reacción).</li>
+  <li><strong>Fecha de actualización visible</strong> en cada página, para que se sepa qué tan vigentes son los datos.</li>
+  <li>Títulos que describen la pregunta, no el nombre técnico del campo.</li>
+</ul>
+<h3>8.2 Justificación de cada visualización</h3>
+<table>
+  <tr><th style="width:21%">Visual</th><th style="width:13%">Tipo</th><th>Por qué ese tipo y qué decisión apoya</th><th style="width:12%">Área</th></tr>
+  <tr><td colspan="4"><strong>Página 1 · Resumen ejecutivo</strong></td></tr>
+  <tr><td>Tarjetas KPI (×5)</td><td>Tarjeta</td><td>Un número grande se lee en un segundo; muestra el estado de los 4 KPIs y de la calidad de datos.</td><td>Gerencia</td></tr>
+  <tr><td>Evolución mensual de interacciones</td><td>Líneas</td><td>El eje es temporal y continuo; la línea muestra tendencia y estacionalidad, separando reacciones y comentarios.</td><td>Gerencia</td></tr>
+  <tr><td>Interacciones por publicación según categoría</td><td>Barras horizontales</td><td>Comparación entre categorías ordenadas de mayor a menor; las etiquetas largas se leen mejor en horizontal.</td><td>Contenido</td></tr>
+  <tr><td>Distribución de reacciones</td><td>Anillo</td><td>Pocas categorías (4) que suman un total: muestra la proporción de cada tipo de reacción.</td><td>Comunidad</td></tr>
+  <tr><td>Reacciones y comentarios por tipo</td><td>Columnas agrupadas</td><td>Compara dos medidas dentro de tres formatos de publicación.</td><td>Contenido</td></tr>
+  <tr><td colspan="4"><strong>Página 2 · Contenido y horarios</strong></td></tr>
+  <tr><td>Mejor hora / mejor día</td><td>Tarjeta (texto)</td><td>Responde directamente “¿cuándo publicar?” sin obligar a leer un gráfico.</td><td>Marketing</td></tr>
+  <tr><td>Interacciones según hora de publicación</td><td>Columnas</td><td>Las 24 horas son una secuencia ordenada; las columnas permiten ver picos y valles.</td><td>Marketing</td></tr>
+  <tr><td>Según día de la semana</td><td>Columnas</td><td>Siete categorías ordenadas de lunes a domingo.</td><td>Marketing</td></tr>
+  <tr><td>Interacciones promedio por hashtag</td><td>Barras horizontales</td><td>Ranking de hashtags; usa la tabla puente para filtrar por hashtag.</td><td>Contenido</td></tr>
+  <tr><td>Categoría × tipo</td><td>Matriz</td><td>Cruce de dos dimensiones con valores exactos y totales por fila y columna.</td><td>Contenido</td></tr>
+  <tr><td colspan="4"><strong>Página 3 · Audiencia</strong></td></tr>
+  <tr><td>Top 10 países</td><td>Barras horizontales</td><td>Hay 205 países; mostrar solo los 10 primeros evita un gráfico ilegible.</td><td>Comunidad</td></tr>
+  <tr><td>Interacciones por dispositivo</td><td>Anillo</td><td>Tres categorías que forman un todo: proporción de uso por dispositivo.</td><td>Producto</td></tr>
+  <tr><td>% sentimiento positivo por género</td><td>Columnas</td><td>Compara un porcentaje entre tres grupos.</td><td>Comunidad</td></tr>
+  <tr><td>Top 10 usuarios más activos</td><td>Tabla</td><td>Se necesita el detalle (id, país, dispositivo, cohorte) para contactar a los usuarios; una tabla es el formato adecuado.</td><td>Retención</td></tr>
+  <tr><td colspan="4"><strong>Página 4 · Campañas</strong></td></tr>
+  <tr><td>Logro promedio por objetivo</td><td>Barras horizontales</td><td>Compara el desempeño de los tres objetivos de campaña.</td><td>Marketing</td></tr>
+  <tr><td>Logro según cantidad de publicaciones</td><td>Columnas</td><td>Eje ordinal (1 a 5 publicaciones): muestra la relación entre esfuerzo y resultado.</td><td>Marketing</td></tr>
+  <tr><td>Detalle de campañas</td><td>Tabla</td><td>Muestra meta frente a logro de cada campaña, ordenada por cumplimiento.</td><td>Gerencia</td></tr>
+</table>
+<p>Todos los visuales se filtran entre sí: por ejemplo, al hacer clic en “Móvil” en el anillo de dispositivos, el resto de la página se recalcula solo para esos usuarios.</p>
+
+<figure class="salto"><img src="../capturas/01_resumen.png" alt="Página Resumen ejecutivo"><figcaption>Figura 3. Página 1 — Resumen ejecutivo.</figcaption></figure>
+<figure><img src="../capturas/02_contenido.png" alt="Página Contenido y horarios"><figcaption>Figura 4. Página 2 — Contenido y horarios.</figcaption></figure>
+<figure class="salto"><img src="../capturas/03_audiencia.png" alt="Página Audiencia"><figcaption>Figura 5. Página 3 — Audiencia.</figcaption></figure>
+<figure><img src="../capturas/04_campanas.png" alt="Página Campañas"><figcaption>Figura 6. Página 4 — Campañas.</figcaption></figure>
+
+<!-- ============================== 9 ============================== -->
+<h2 class="salto">9. Implementación de KPI</h2>
+<div class="kpis">
+  <div class="kpi"><div class="n">KPI 1 · Popularidad</div><div class="v">2,00</div><div class="n">interacciones por publicación</div></div>
+  <div class="kpi"><div class="n">KPI 2 · Participación</div><div class="v">83,8 %</div><div class="n">usuarios activos (419 de 500)</div></div>
+  <div class="kpi"><div class="n">KPI 3 · Percepción</div><div class="v">47,1 %</div><div class="n">reacciones positivas</div></div>
+  <div class="kpi"><div class="n">KPI 4 · Campañas</div><div class="v">0,66 %</div><div class="n">logro promedio de metas</div></div>
+</div>
+<table>
+  <tr><th style="width:15%">KPI</th><th style="width:31%">Cálculo (DAX)</th><th style="width:20%">Origen de los datos</th><th>Interpretación y uso</th></tr>
+  <tr><td>1. Interacciones por publicación</td><td><code>DIVIDE([Interacciones], [Publicaciones])</code></td><td>reacciones + comentarios (hecho) / publicaciones</td><td>Popularidad media del contenido. Filtrado por categoría, tipo u hora indica qué contenido y qué horario rinden más.</td></tr>
+  <tr><td>2. % usuarios activos</td><td><code>DIVIDE([Usuarios activos], [Usuarios registrados])</code><br>activos = <code>DISTINCTCOUNT(fact[usuario_id])</code></td><td>usuarios + hecho de interacciones</td><td>Participación de la base registrada. El complemento (16,2 %, 81 usuarios) es el público objetivo de las campañas de reactivación.</td></tr>
+  <tr><td>3. % sentimiento positivo</td><td><code>DIVIDE([Reacciones positivas], [Reacciones])</code></td><td>reacciones (tipo → sentimiento en el ETL)</td><td>Percepción del contenido. “Me gusta” y “Me encanta” se consideran positivas; “Me enoja” y “Me entristece”, negativas.</td></tr>
+  <tr><td>4. Logro de campañas</td><td><code>AVERAGE(dim_campanas[pct_logro_promedio])</code></td><td>campañas + puente + hecho, dentro de la ventana de cada campaña</td><td>Promedio de (reacciones positivas / meta de likes) y (comentarios / meta de comentarios). Mide si las campañas cumplen lo que se propusieron.</td></tr>
+  <tr><td>Calidad de datos</td><td><code>DIVIDE(CALCULATE([Interacciones], fact[consistente_temporal] = TRUE()), [Interacciones])</code></td><td>hecho de interacciones</td><td>Proporción de interacciones con fecha válida (50,5 %). Indicador de control para TI.</td></tr>
+</table>
+<h3>Medidas DAX del modelo</h3>
+<p>El modelo contiene 26 medidas organizadas en carpetas (Base, KPI, Contenido, Audiencia, Campañas, Control). Las medidas de apoyo más relevantes:</p>
+{{MEDIDAS}}
+<p><strong>Automatización de los KPIs:</strong> ningún KPI se escribe a mano. Todos se recalculan a partir de la base en cada actualización (sección 10) y responden a los filtros que aplique el usuario.</p>
+
+<!-- ============================== 10 ============================== -->
+<h2>10. Automatización y actualización</h2>
+<p>El flujo completo, desde Cosmos DB hasta el tablero, se ejecuta sin pasos manuales de transformación:</p>
+<table>
+  <tr><th style="width:26%">Componente</th><th>Función</th></tr>
+  <tr><td><code>actualizar.ps1</code></td><td>Ejecuta el ETL completo (extracción, transformación y carga) y registra el resultado con fecha y hora en <code>logs/etl_AAAA-MM-DD.log</code>. Si algo falla, termina con código de error.</td></tr>
+  <tr><td>Botón Actualizar de Power BI</td><td>Recarga las 9 tablas desde los CSV y recalcula las 26 medidas.</td></tr>
+  <tr><td>Tarjeta “Datos actualizados”</td><td>Muestra en cada página la fecha y hora de la última ejecución del ETL (tabla <code>control_ejecucion</code>).</td></tr>
+  <tr><td><code>registrar_tarea.ps1</code> (opcional)</td><td>Programa <code>actualizar.ps1</code> en el Programador de tareas de Windows con la frecuencia deseada (por defecto, cada hora).</td></tr>
+  <tr><td><code>preparar_equipo.ps1</code></td><td>Deja operativo cualquier computador en un paso: entorno Python, prueba de conexión, ETL y ajuste del parámetro <code>RutaDatos</code>.</td></tr>
+  <tr><td><code>demo_en_vivo.py</code></td><td>Inserta en Cosmos DB 60 reacciones y 20 comentarios marcados como demostración y luego los revierte, para mostrar en vivo que los KPIs cambian al actualizar.</td></tr>
+</table>
+<p><strong>Prueba realizada:</strong> tras insertar los datos de demostración y actualizar, las interacciones subieron de 999 a 1.079 y “Me encanta” de 111 a 171. Al revertir, la base volvió a 500 documentos por colección.</p>
+<div class="nota"><strong>Alcance de “tiempo real”.</strong> Con importación, Power BI muestra los datos de la última actualización, no cada cambio al instante. Para este caso es adecuado: las decisiones de contenido y campañas son diarias o semanales. Si se requiriera una frecuencia mayor, el siguiente paso sería publicar el informe en Power BI Service con actualización programada mediante puerta de enlace (hasta 8 veces al día con licencia Pro), o escribir los CSV en un almacenamiento en la nube para prescindir de la puerta de enlace.</div>
+
+<!-- ============================== 11 ============================== -->
+<h2>11. Hallazgos y recomendaciones</h2>
+<table>
+  <tr><th style="width:36%">Hallazgo (datos del tablero)</th><th>Recomendación</th></tr>
+  <tr><td><strong>Horario:</strong> la tarde (12–17 h) logra 2,16 interacciones por publicación frente a 1,89 de la noche. El jueves (2,29) supera al lunes (1,86) en un 23 %.</td><td>Concentrar las publicaciones clave entre las 13 y las 15 h y de miércoles a jueves; evitar las 22 h y la madrugada (2–3 h), que tienen los peores resultados.</td></tr>
+  <tr><td><strong>Contenido:</strong> Entretenimiento (2,12) y Educación (2,10) lideran; Cultura es la más baja (1,87). El video de Entretenimiento alcanza 2,57. El hashtag #futbol es el de mejor rendimiento (2,15).</td><td>Priorizar video en Entretenimiento y contenido educativo; revisar el enfoque de Cultura; usar #futbol y #aprendizaje en las campañas.</td></tr>
+  <tr><td><strong>Audiencia:</strong> el móvil concentra el 37 % de las interacciones. 81 usuarios (16,2 %) nunca interactuaron.</td><td>Diseño <em>mobile-first</em> y una campaña de reactivación dirigida a los 81 usuarios inactivos.</td></tr>
+  <tr><td><strong>Percepción:</strong> solo el 47,1 % de las reacciones son positivas; “Me entristece” es la más frecuente (28 %). El público femenino reacciona más positivamente (51,2 %) que el masculino (43,9 %).</td><td>Analizar las publicaciones con más reacciones negativas y ajustar la línea editorial; segmentar mensajes por audiencia.</td></tr>
+  <tr><td><strong>Campañas:</strong> el logro promedio es 0,66 % y solo 2 de 500 campañas superan el 5 %. Las campañas con 5 publicaciones logran 1,25 %, cinco veces más que las de 1 publicación (0,24 %). 38 campañas no tuvieron ninguna interacción en su ventana.</td><td>Reformular las metas según el volumen real de interacción (son de cientos de likes por campaña, con apenas 1.000 interacciones en toda la plataforma); asociar más publicaciones a cada campaña; pausar las campañas sin respuesta.</td></tr>
+  <tr><td><strong>Calidad de datos:</strong> el 49,5 % de las interacciones tiene fecha anterior a su publicación, y no existe registro de “compartidos”.</td><td>Corregir la captura de fechas en la aplicación de origen y comenzar a registrar compartidos, para poder medir esa meta.</td></tr>
+</table>
+
+<!-- ============================== 12 ============================== -->
+<h2>12. Boceto del dashboard final y KPIs proyectados</h2>
+<p>El tablero actual (figuras 3 a 6) es la base del dashboard final. Para la entrega final se proyecta:</p>
+<ul>
+  <li>Una página de <strong>Retención</strong> con cohortes de registro por trimestre y su actividad mes a mes (la cohorte ya existe en <code>dim_usuarios</code>).</li>
+  <li>Información emergente (<em>tooltip</em>) con el detalle de cada publicación al pasar el cursor por los gráficos.</li>
+  <li>Publicación en Power BI Service con actualización programada y acceso por rol (gerencia, marketing, contenido).</li>
+</ul>
+<table>
+  <tr><th style="width:24%">KPI proyectado</th><th style="width:36%">Definición</th><th>Requisito</th></tr>
+  <tr><td>Tasa de retención mensual</td><td>Usuarios activos en el mes <em>n</em> que también lo están en <em>n</em>+1, sobre los activos en <em>n</em>.</td><td>Disponible con los datos actuales.</td></tr>
+  <tr><td>Crecimiento mensual de interacciones</td><td>Variación porcentual de las interacciones respecto del mes anterior.</td><td>Disponible (medida con inteligencia de tiempo).</td></tr>
+  <tr><td>Tiempo a la primera interacción</td><td>Horas entre la publicación y su primera interacción.</td><td>Requiere corregir las fechas inconsistentes en el origen.</td></tr>
+  <tr><td>Tasa de compartidos por campaña</td><td>Compartidos logrados / meta de compartidos.</td><td>Requiere registrar las acciones de compartir.</td></tr>
+  <tr><td>Interacciones por usuario alcanzado</td><td>Interacciones de la campaña / usuarios distintos alcanzados.</td><td>Disponible.</td></tr>
+</table>
+
+<!-- ============================== 13 ============================== -->
+<h2>13. Limitaciones</h2>
+<ul>
+  <li>Los datos del anexo son simulados: los nombres, correos y textos son ficticios, y los hallazgos ilustran la metodología, no el comportamiento real de una plataforma.</li>
+  <li>El volumen es bajo (aproximadamente 2 interacciones por publicación), por lo que las diferencias entre categorías, horas y días son pequeñas en valor absoluto.</li>
+  <li>Se usa Cosmos DB 4.2 y no la 6.0, porque la cuenta solo permitió actualizar hasta 4.2; esto obliga a usar PyMongo 4.10.</li>
+  <li>La actualización es por importación (sección 10), no en tiempo real estricto.</li>
+</ul>
+
+<!-- ============================== 14 ============================== -->
+<h2>14. Anexo: ejecución y evidencias</h2>
+<h3>Estructura del repositorio</h3>
+<pre>contentflow/
+├── data/raw/                 JSON del anexo (Forma A)
+├── data/processed/           CSV del modelo + bitácora (generados por el ETL)
+├── scripts/
+│   ├── cargar_datos.py       carga inicial a Cosmos DB
+│   ├── etl_contentflow.py    extracción + transformación + carga
+│   ├── generar_pbip.py       genera el modelo (TMDL) y el informe (PBIR)
+│   ├── actualizar.ps1        actualización con registro en logs/
+│   ├── registrar_tarea.ps1   programación opcional en Windows
+│   ├── preparar_equipo.ps1   configuración de un equipo nuevo
+│   └── demo_en_vivo.py       demostración de actualización
+├── powerbi/ContentFlow.pbip  proyecto Power BI
+├── docs/capturas/            evidencias del tablero
+├── docs/informe/             este informe
+├── requirements.txt · .env.example · .gitignore
+</pre>
+<h3>Ejecución</h3>
+<pre># 1. Copiar .env (cadena de conexión) en la raíz del proyecto
+# 2. Preparar el equipo (entorno, conexión, ETL y ruta de datos)
+powershell -ExecutionPolicy Bypass -File scripts\preparar_equipo.ps1
+# 3. Abrir powerbi\ContentFlow.pbip y pulsar Actualizar
+# Actualizaciones posteriores:
+powershell -File scripts\actualizar.ps1</pre>
+<h3>Seguridad</h3>
+<ul>
+  <li>La cadena de conexión con la clave de Cosmos DB solo existe en <code>.env</code>, excluido del repositorio por <code>.gitignore</code>; el repositorio incluye un <code>.env.example</code> sin credenciales.</li>
+  <li>El ETL no extrae el nombre del usuario y descarta el correo tras obtener su dominio.</li>
+</ul>
+
+</body>
+</html>

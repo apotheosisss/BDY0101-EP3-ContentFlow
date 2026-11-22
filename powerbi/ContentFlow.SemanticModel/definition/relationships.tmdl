@@ -1,0 +1,33 @@
+relationship 6b2ed270-f8fb-5a05-aa8d-f74b406e1e12
+	fromColumn: fact_interacciones.publicacion_id
+	toColumn: dim_publicaciones.publicacion_id
+
+relationship 4e4bc2a8-9416-5683-acba-9c6839a4a078
+	fromColumn: fact_interacciones.usuario_id
+	toColumn: dim_usuarios.usuario_id
+
+relationship 8e26315f-de7d-5851-b7a8-fa747befb451
+	fromColumn: fact_interacciones.fecha
+	toColumn: dim_fecha.fecha
+
+relationship 91a54937-8117-5b1e-831c-46dc91efe1ce
+	fromColumn: puente_publicacion_hashtag.publicacion_id
+	toColumn: dim_publicaciones.publicacion_id
+
+relationship 7d10681e-12e7-5e45-9b0d-071330147e86
+	fromColumn: puente_campana_publicacion.publicacion_id
+	toColumn: dim_publicaciones.publicacion_id
+
+relationship 51def562-c608-5e38-9467-20c6fe8ad12c
+	fromColumn: puente_campana_publicacion.campana_id
+	toColumn: dim_campanas.campana_id
+
+relationship 5638e115-6488-5da0-b9b3-c8159467bb3e
+	isActive: false
+	fromColumn: dim_publicaciones.autor_id
+	toColumn: dim_usuarios.usuario_id
+
+relationship c735c10a-ae55-5f62-8786-6497e5dd3853
+	isActive: false
+	fromColumn: dim_publicaciones.pub_fecha
+	toColumn: dim_fecha.fecha

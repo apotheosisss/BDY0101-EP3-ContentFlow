@@ -1,0 +1,26 @@
+table puente_campana_publicacion
+	lineageTag: 0f4d9a7c-1d44-5da0-a2c2-239131934509
+
+	column campana_id
+		dataType: string
+		lineageTag: adff5d18-c0fe-5111-98f6-2b196ce8c2ea
+		summarizeBy: none
+		sourceColumn: campana_id
+
+	column publicacion_id
+		dataType: string
+		lineageTag: 9e91556f-7564-50aa-bafd-5d8be759f237
+		summarizeBy: none
+		sourceColumn: publicacion_id
+
+	partition puente_campana_publicacion = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "puente_campana_publicacion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"campana_id", type text}, {"publicacion_id", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

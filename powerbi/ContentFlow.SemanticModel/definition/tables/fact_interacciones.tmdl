@@ -1,0 +1,125 @@
+table fact_interacciones
+	lineageTag: acf6c6ae-7067-57d1-84af-6d4515ae5e1d
+
+	column interaccion_id
+		dataType: string
+		lineageTag: 217dccdd-6cfc-56c7-b305-5a322f3b6121
+		summarizeBy: none
+		sourceColumn: interaccion_id
+
+	column usuario_id
+		dataType: string
+		lineageTag: 4189400c-dc25-5253-830a-b56f33e44fc0
+		summarizeBy: none
+		sourceColumn: usuario_id
+
+	column publicacion_id
+		dataType: string
+		lineageTag: fd1e1213-a39b-5b3a-9952-40d65905b426
+		summarizeBy: none
+		sourceColumn: publicacion_id
+
+	column subtipo
+		dataType: string
+		lineageTag: ce25eaf7-3ab1-51cf-b753-2b6c27f72df9
+		summarizeBy: none
+		sourceColumn: subtipo
+
+	column fecha_hora
+		dataType: dateTime
+		formatString: dd-mm-yyyy hh:nn
+		lineageTag: 534bc3ce-99ba-5182-a38b-2857e23d25d7
+		summarizeBy: none
+		sourceColumn: fecha_hora
+
+	column tipo_interaccion
+		dataType: string
+		lineageTag: a519fd96-715a-54e8-8187-a221a0f04249
+		summarizeBy: none
+		sourceColumn: tipo_interaccion
+
+	column likes
+		dataType: int64
+		formatString: 0
+		lineageTag: de80ad74-867c-5940-b405-f3f36e9a3cb5
+		summarizeBy: none
+		sourceColumn: likes
+
+	column largo_comentario
+		dataType: double
+		formatString: 0.00
+		lineageTag: d43d1cb4-4b7b-59a3-93f4-2efcae490497
+		summarizeBy: none
+		sourceColumn: largo_comentario
+
+	column sentimiento
+		dataType: string
+		lineageTag: 1d019720-6718-59f7-8720-96931e90d794
+		summarizeBy: none
+		sourceColumn: sentimiento
+
+	column consistente_temporal
+		dataType: boolean
+		lineageTag: f966bb68-fd94-5112-99d7-4fff21fcba48
+		summarizeBy: none
+		sourceColumn: consistente_temporal
+
+	column horas_desde_publicacion
+		dataType: double
+		formatString: 0.00
+		lineageTag: 406d5350-f839-5c88-9c32-e26fe8c5d76b
+		summarizeBy: none
+		sourceColumn: horas_desde_publicacion
+
+	column fecha
+		dataType: dateTime
+		formatString: dd-mm-yyyy
+		lineageTag: c25bbf7f-10d9-5451-9d13-4a3a6732bb57
+		summarizeBy: none
+		sourceColumn: fecha
+
+	column hora
+		dataType: int64
+		formatString: 0
+		lineageTag: 6476e4de-c63a-5802-b372-583d40bc20a1
+		summarizeBy: none
+		sourceColumn: hora
+
+	column dia_semana_num
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: fd495985-4fa3-5dee-9bed-501988855eba
+		summarizeBy: none
+		sourceColumn: dia_semana_num
+
+	column dia_semana
+		dataType: string
+		sortByColumn: dia_semana_num
+		lineageTag: e4f0949b-08e7-5a9d-8ef9-5c526feb20a5
+		summarizeBy: none
+		sourceColumn: dia_semana
+
+	column franja
+		dataType: string
+		lineageTag: 7ef6c216-b69f-52a8-b05f-286c87dfcd59
+		summarizeBy: none
+		sourceColumn: franja
+
+	column mes
+		dataType: string
+		lineageTag: 5b043b1a-3328-5240-ac0d-65c806463afa
+		summarizeBy: none
+		sourceColumn: mes
+
+	partition fact_interacciones = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_interacciones.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"interaccion_id", type text}, {"usuario_id", type text}, {"publicacion_id", type text}, {"subtipo", type text}, {"fecha_hora", type datetime}, {"tipo_interaccion", type text}, {"likes", Int64.Type}, {"largo_comentario", type number}, {"sentimiento", type text}, {"consistente_temporal", type logical}, {"horas_desde_publicacion", type number}, {"fecha", type datetime}, {"hora", Int64.Type}, {"dia_semana_num", Int64.Type}, {"dia_semana", type text}, {"franja", type text}, {"mes", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

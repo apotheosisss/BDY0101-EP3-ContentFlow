@@ -1,0 +1,147 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "audiencia_v13",
+  "position": {
+    "x": 440,
+    "y": 470,
+    "z": 12000,
+    "height": 240,
+    "width": 830,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_usuarios"
+                    }
+                  },
+                  "Property": "usuario_id"
+                }
+              },
+              "queryRef": "dim_usuarios.usuario_id",
+              "nativeQueryRef": "usuario_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_usuarios"
+                    }
+                  },
+                  "Property": "pais"
+                }
+              },
+              "queryRef": "dim_usuarios.pais",
+              "nativeQueryRef": "pais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_usuarios"
+                    }
+                  },
+                  "Property": "dispositivo"
+                }
+              },
+              "queryRef": "dim_usuarios.dispositivo",
+              "nativeQueryRef": "dispositivo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_usuarios"
+                    }
+                  },
+                  "Property": "cohorte_registro"
+                }
+              },
+              "queryRef": "dim_usuarios.cohorte_registro",
+              "nativeQueryRef": "cohorte_registro"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Interacciones Top 10 usuarios"
+                }
+              },
+              "queryRef": "Medidas.Interacciones Top 10 usuarios",
+              "nativeQueryRef": "Interacciones Top 10 usuarios"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Interacciones Top 10 usuarios"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top 10 usuarios más activos'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

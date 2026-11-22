@@ -1,0 +1,189 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "campanas_v10",
+  "position": {
+    "x": 10,
+    "y": 470,
+    "z": 9000,
+    "height": 240,
+    "width": 1260,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "etiqueta"
+                }
+              },
+              "queryRef": "dim_campanas.etiqueta",
+              "nativeQueryRef": "etiqueta"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "objetivo"
+                }
+              },
+              "queryRef": "dim_campanas.objetivo",
+              "nativeQueryRef": "objetivo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "n_publicaciones"
+                }
+              },
+              "queryRef": "dim_campanas.n_publicaciones",
+              "nativeQueryRef": "n_publicaciones"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "meta_likes"
+                }
+              },
+              "queryRef": "dim_campanas.meta_likes",
+              "nativeQueryRef": "meta_likes"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "reacciones_positivas"
+                }
+              },
+              "queryRef": "dim_campanas.reacciones_positivas",
+              "nativeQueryRef": "reacciones_positivas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "meta_comentarios"
+                }
+              },
+              "queryRef": "dim_campanas.meta_comentarios",
+              "nativeQueryRef": "meta_comentarios"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "comentarios_logrados"
+                }
+              },
+              "queryRef": "dim_campanas.comentarios_logrados",
+              "nativeQueryRef": "comentarios_logrados"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_campanas"
+                    }
+                  },
+                  "Property": "pct_logro_promedio"
+                }
+              },
+              "queryRef": "dim_campanas.pct_logro_promedio",
+              "nativeQueryRef": "pct_logro_promedio"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_campanas"
+                  }
+                },
+                "Property": "pct_logro_promedio"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalle de campañas (ordenado por logro)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
