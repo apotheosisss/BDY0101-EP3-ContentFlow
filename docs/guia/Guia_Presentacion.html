@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guía para el equipo de presentación — ContentFlow</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  :root { --azul:#1f4e79; --azul2:#2e75b6; --gris:#5f6b7a; --borde:#d5dbe3; --suave:#f3f6fa; --verde:#38761d; --rojo:#a61c00; --ambar:#b45f06; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Calibri, Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color:#1d2530; margin:0; }
+  h1 { font-size: 19pt; color: var(--azul); margin: 0 0 1mm; }
+  .sub { color: var(--gris); margin-bottom: 5mm; }
+  h2 { font-size: 13.5pt; color: #fff; background: var(--azul); padding: 1.8mm 3mm; margin: 7mm 0 3mm; break-after: avoid; border-radius: 2px; }
+  h3 { font-size: 11pt; color: var(--azul2); margin: 4mm 0 1.5mm; break-after: avoid; }
+  p { margin: 0 0 2mm; }
+  ol, ul { margin: 0 0 3mm; padding-left: 6mm; }
+  li { margin-bottom: 1.4mm; }
+  code { font-family: Consolas, monospace; font-size: 9pt; background: var(--suave); padding: 0 1mm; border-radius: 2px; }
+  pre { font-family: Consolas, monospace; font-size: 9pt; background: #1e2430; color: #e8edf3; padding: 2.5mm 3mm; border-radius: 3px; margin: 1.5mm 0 3mm; white-space: pre-wrap; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.3pt; margin: 2mm 0 4mm; }
+  th { background: var(--suave); color: var(--azul); text-align: left; padding: 1.5mm 2mm; border-bottom: 2px solid var(--azul2); }
+  td { padding: 1.5mm 2mm; border-bottom: 1px solid var(--borde); vertical-align: top; }
+  tr { break-inside: avoid; }
+  .caja { border: 1px solid var(--borde); border-left: 4px solid var(--azul2); padding: 2.5mm 3.5mm; margin: 2mm 0 4mm; border-radius: 2px; break-inside: avoid; }
+  .ok { border-left-color: var(--verde); background: #f3f9f0; }
+  .alerta { border-left-color: var(--rojo); background: #fdf2f0; }
+  .aviso { border-left-color: var(--ambar); background: #fff7ef; }
+  .check li { list-style: none; margin-left: -5mm; }
+  .check li::before { content: "☐  "; color: var(--azul2); font-weight: 700; }
+  .paso { display: grid; grid-template-columns: 9mm 1fr; gap: 2mm; margin-bottom: 3mm; break-inside: avoid; }
+  .num { background: var(--azul2); color: #fff; font-weight: 700; border-radius: 50%; width: 7.5mm; height: 7.5mm; display: flex; align-items: center; justify-content: center; font-size: 10pt; }
+  .salto { break-before: page; }
+  .peq { font-size: 9pt; color: var(--gris); }
+</style>
+</head>
+<body>
+
+<h1>Guía para el computador de la presentación</h1>
+<div class="sub">EP3 BDY0101 · Caso ContentFlow · Claudio Aro · Guillermo Cerda · Manuel Díaz · Sección 001D</div>
+
+<div class="caja">
+  <strong>Qué vamos a hacer:</strong> dejar el tablero de Power BI funcionando en este laptop, conectado a la base de datos de Azure, y ensayar la demostración en vivo.<br>
+  <strong>Tiempo:</strong> unos 20 minutos la primera vez. <strong>Hacerlo el día anterior</strong>, no en la sala.<br>
+  <strong>Repositorio:</strong> https://github.com/apotheosisss/BDY0101-EP3-ContentFlow
+</div>
+
+<h2>Parte A · Instalar lo necesario (una sola vez)</h2>
+<table>
+  <tr><th style="width:24%">Programa</th><th>Cómo instalarlo</th><th style="width:30%">Cómo comprobarlo</th></tr>
+  <tr><td><strong>Power BI Desktop</strong></td><td>Microsoft Store → buscar “Power BI Desktop” → Obtener.</td><td>Aparece en el menú Inicio.</td></tr>
+  <tr><td><strong>Python 3.12</strong></td><td>python.org → Downloads → Windows. En la primera pantalla del instalador <strong>marcar “Add python.exe to PATH”</strong> y luego “Install Now”.</td><td>En PowerShell: <code>python --version</code> muestra 3.12 o superior.</td></tr>
+  <tr><td><strong>Git</strong> (opcional)</td><td>git-scm.com → Download for Windows, siguiente en todo. Si no se instala, se puede descargar el proyecto en ZIP (paso B1).</td><td><code>git --version</code></td></tr>
+</table>
+<p class="peq">Si PowerShell ya estaba abierto mientras instalaban, ciérrenlo y ábranlo de nuevo para que reconozca los programas.</p>
+
+<h2>Parte B · Preparar el proyecto (una sola vez)</h2>
+
+<div class="paso"><div class="num">1</div><div>
+<strong>Descargar el proyecto</strong> en una carpeta simple, por ejemplo <code>C:\ContentFlow</code>.<br>
+Con Git, abrir PowerShell y ejecutar:
+<pre>git clone https://github.com/apotheosisss/BDY0101-EP3-ContentFlow.git C:\ContentFlow</pre>
+Sin Git: en la página del repositorio → botón verde <strong>Code</strong> → <strong>Download ZIP</strong> → descomprimir y renombrar la carpeta a <code>C:\ContentFlow</code> (que dentro de ella estén directamente <code>README.md</code>, <code>scripts</code>, <code>powerbi</code>, etc.).
+</div></div>
+
+<div class="paso"><div class="num">2</div><div>
+<strong>Copiar el archivo <code>.env</code></strong> que les entregó Claudio (por pendrive o mensaje privado) dentro de <code>C:\ContentFlow</code>, junto a <code>README.md</code>.
+<div class="caja aviso" style="margin-top:2mm">
+  • El archivo se llama exactamente <code>.env</code> (sin nada antes del punto). Para verificarlo, en el Explorador: <em>Vista → Mostrar → Extensiones de nombre de archivo</em>. Si aparece como <code>.env.txt</code>, renómbrenlo.<br>
+  • Contiene la clave de la base de datos: <strong>no lo suban a GitHub ni lo compartan</strong>.
+</div>
+</div></div>
+
+<div class="paso"><div class="num">3</div><div>
+<strong>Abrir PowerShell en la carpeta:</strong> en el Explorador, entrar a <code>C:\ContentFlow</code>, hacer clic en la barra de direcciones, escribir <code>powershell</code> y presionar Enter.
+</div></div>
+
+<div class="paso"><div class="num">4</div><div>
+<strong>Ejecutar el script de preparación:</strong>
+<pre>powershell -ExecutionPolicy Bypass -File scripts\preparar_equipo.ps1</pre>
+Tarda 1 a 3 minutos. Debe mostrar los pasos <code>[1/4]</code> a <code>[4/4]</code>, las 5 colecciones con <strong>500 documentos</strong> cada una y terminar en verde con <strong>“Listo. Abre powerbi\ContentFlow.pbip y pulsa Actualizar.”</strong>
+</div></div>
+
+<div class="paso"><div class="num">5</div><div>
+<strong>Abrir el tablero:</strong> doble clic en <code>C:\ContentFlow\powerbi\ContentFlow.pbip</code>. Cuando cargue, pulsar <strong>Actualizar</strong> (en el aviso amarillo o en la cinta <em>Inicio</em>).<br>
+Si pregunta por niveles de privacidad o acceso a archivos, elegir <strong>Ignorar niveles de privacidad</strong> / <strong>Conectar</strong>.
+</div></div>
+
+<div class="paso"><div class="num">6</div><div>
+<strong>Comprobar los valores</strong> en la página <em>Resumen ejecutivo</em>:
+<table style="width:75%">
+  <tr><th>Tarjeta</th><th>Debe mostrar</th></tr>
+  <tr><td>Interacciones / publicación</td><td>2,00</td></tr>
+  <tr><td>% Usuarios activos</td><td>83,8 %</td></tr>
+  <tr><td>% Sentimiento positivo</td><td>47,1 %</td></tr>
+  <tr><td>Logro de campañas</td><td>0,66 %</td></tr>
+  <tr><td>Arriba a la derecha</td><td>“Datos actualizados: (fecha y hora de hoy)”</td></tr>
+</table>
+Si todo coincide, guardar con <strong>Ctrl + S</strong>. El laptop está listo.
+</div></div>
+
+<h2 class="salto">Parte C · Ensayar la demo en vivo</h2>
+<p>La demo prueba que el tablero se actualiza desde la base de datos real. Usar <strong>dos ventanas</strong>: PowerShell en <code>C:\ContentFlow</code> y Power BI abierto en la página <em>Resumen ejecutivo</em>.</p>
+
+<div class="paso"><div class="num">1</div><div><strong>Mostrar el estado inicial:</strong> la dona “Distribución de reacciones” muestra <strong>499</strong> y “Me encanta” = <strong>111</strong>.</div></div>
+<div class="paso"><div class="num">2</div><div><strong>Insertar datos nuevos en Cosmos DB</strong> (60 reacciones “Me encanta” y 20 comentarios):
+<pre>.\.venv\Scripts\python.exe scripts\demo_en_vivo.py insertar</pre></div></div>
+<div class="paso"><div class="num">3</div><div><strong>Ejecutar el ETL</strong> (extrae y transforma de nuevo):
+<pre>powershell -ExecutionPolicy Bypass -File scripts\actualizar.ps1</pre>
+No muestra nada en pantalla; termina en unos 20 segundos (el detalle queda en la carpeta <code>logs</code>).</div></div>
+<div class="paso"><div class="num">4</div><div><strong>En Power BI pulsar Actualizar:</strong> las interacciones suben a <strong>1.079</strong>, la dona muestra <strong>559</strong> reacciones, “Me encanta” pasa a <strong>171</strong>, sube el % de sentimiento positivo y la categoría Tecnología, y cambia la hora de “Datos actualizados”.</div></div>
+<div class="paso"><div class="num">5</div><div><strong>Dejar la base como estaba</strong> (¡no olvidar!):
+<pre>.\.venv\Scripts\python.exe scripts\demo_en_vivo.py revertir
+powershell -ExecutionPolicy Bypass -File scripts\actualizar.ps1</pre>
+y pulsar <strong>Actualizar</strong> otra vez en Power BI. Los valores vuelven a 2,00 / 83,8 % / 47,1 %.</div></div>
+<div class="caja ok"><strong>Consejo:</strong> para ver en cualquier momento si quedaron datos de la demo en la base:
+<pre style="margin-bottom:0">.\.venv\Scripts\python.exe scripts\demo_en_vivo.py estado</pre>
+Debe decir “de la demo 0” en ambas colecciones.</div>
+
+<h2>Parte D · El día de la presentación</h2>
+<ul class="check">
+  <li>Conectar el laptop a internet <strong>antes</strong> de empezar y abrir Power BI con el tablero ya cargado.</li>
+  <li>Ejecutar <code>scripts\actualizar.ps1</code> y pulsar Actualizar en Power BI, para que “Datos actualizados” muestre la hora de ese momento.</li>
+  <li>Dejar PowerShell abierto en <code>C:\ContentFlow</code> con los comandos de la demo a mano (Parte C).</li>
+  <li>Tener abierto el informe <code>docs\informe\Informe_ContentFlow.pdf</code> (diagramas de arquitectura y modelo).</li>
+  <li>Al terminar: ejecutar <code>demo_en_vivo.py revertir</code> si se hizo la demo.</li>
+</ul>
+<h3>Orden sugerido (≈ 10 minutos)</h3>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:30%">Tema</th><th>Qué mostrar</th><th style="width:10%">Min</th></tr>
+  <tr><td>1</td><td>Problema y objetivo</td><td>ContentFlow y las 4 preguntas de negocio (informe, sección 2).</td><td>1</td></tr>
+  <tr><td>2</td><td>Arquitectura</td><td>Figura 1 del informe: Cosmos DB → Python → CSV → Power BI.</td><td>1,5</td></tr>
+  <tr><td>3</td><td>Extracción y transformación</td><td>Una consulta con <code>$lookup</code>, la bitácora de 21 transformaciones y la decisión sobre las fechas inconsistentes.</td><td>2</td></tr>
+  <tr><td>4</td><td>Modelo y KPIs</td><td>Figura 2 (modelo estrella) y los 4 KPIs.</td><td>1,5</td></tr>
+  <tr><td>5</td><td>Tablero</td><td>Las 4 páginas; usar un segmentador (p. ej. Dispositivo = Móvil) para mostrar la interactividad.</td><td>2</td></tr>
+  <tr><td>6</td><td>Demo en vivo</td><td>Parte C: insertar → ETL → Actualizar → los KPIs cambian.</td><td>1,5</td></tr>
+  <tr><td>7</td><td>Hallazgos</td><td>Jueves +23 % frente a lunes; campañas con 5 publicaciones logran 5 veces más; 49,5 % de fechas inconsistentes.</td><td>0,5</td></tr>
+</table>
+
+<h2>Parte E · Si algo falla</h2>
+<table>
+  <tr><th style="width:36%">Síntoma</th><th>Solución</th></tr>
+  <tr><td><code>python</code> no se reconoce</td><td>Reinstalar Python marcando <strong>“Add python.exe to PATH”</strong>, cerrar y volver a abrir PowerShell.</td></tr>
+  <tr><td>“la ejecución de scripts está deshabilitada”</td><td>Escribir el comando completo tal como aparece en esta guía, con <code>-ExecutionPolicy Bypass</code>.</td></tr>
+  <tr><td>“Falta el archivo .env”</td><td>El <code>.env</code> no está en <code>C:\ContentFlow</code> o se llama <code>.env.txt</code> (Parte B, paso 2).</td></tr>
+  <tr><td>“No hay conexión con Cosmos DB”</td><td>Probablemente la red de la sede bloquea el puerto 10255. <strong>Conectarse a la zona Wi-Fi de un celular</strong> y repetir. Si no es posible, usar el Plan B.</td></tr>
+  <tr><td>Power BI: “no se encontró el archivo … .csv”</td><td>Se movió la carpeta del proyecto. Cerrar Power BI sin guardar, ejecutar otra vez <code>preparar_equipo.ps1</code> y abrir de nuevo.</td></tr>
+  <tr><td>Las tarjetas dicen “(En blanco)”</td><td>Falta pulsar <strong>Actualizar</strong> en Power BI.</td></tr>
+  <tr><td>La demo dejó datos extra</td><td><code>demo_en_vivo.py revertir</code>, luego <code>actualizar.ps1</code> y Actualizar en Power BI.</td></tr>
+  <tr><td>Power BI pide iniciar sesión</td><td>No es necesario: cerrar esa ventana; el tablero funciona sin cuenta.</td></tr>
+</table>
+
+<div class="caja alerta">
+<strong>Plan B · sin conexión a Azure.</strong> El repositorio ya trae los datos procesados, así que el tablero se puede mostrar aunque no haya acceso a la base (sin Python ni <code>.env</code>):
+<pre>powershell -ExecutionPolicy Bypass -File scripts\preparar_equipo.ps1 -SinConexion</pre>
+Luego abrir <code>ContentFlow.pbip</code> y pulsar Actualizar. Todo el tablero funciona; lo único que no se puede hacer es la demo en vivo (Parte C). En ese caso, explicar la demo con la sección 10 del informe, donde está documentada la prueba (999 → 1.079 interacciones).
+</div>
+
+<h3>Contacto</h3>
+<p>Ante cualquier duda durante la preparación, escribir a Claudio antes de la clase.</p>
+
+</body>
+</html>
