@@ -3,7 +3,7 @@
 Evaluación Parcial N°3 · BDY0101 Base de Datos No Relacionales · Duoc UC · Caso Forma A
 
 **Integrantes:** Claudio Aro · Guillermo Cerda · Manuel Díaz  
-**Docente:** Germán Barrientos
+**Docente:** Germán Barrientos · **Sección:** 001D
 
 Pipeline de datos que extrae la base documental de **ContentFlow** desde **Azure Cosmos DB (API para MongoDB)**, la transforma con **Python (PyMongo + pandas)** en un modelo estrella y la presenta en un tablero interactivo de **Power BI** con 4 KPIs.
 
