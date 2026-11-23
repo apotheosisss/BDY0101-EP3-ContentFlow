@@ -16,7 +16,7 @@ fact_interacciones,limpieza,marca 'consistente_temporal' = interacción posterio
 fact_interacciones,limpieza,validación de integridad referencial usuario/publicación,Evita hechos sin dimensión en el modelo,0
 dim_campanas,formato,'fecha_inicio' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
 dim_campanas,formato,'fecha_fin' texto ISO-8601 -> datetime,"Permite filtros por fecha, jerarquías y series de tiempo en Power BI",500
-dim_campanas,semántica,etiqueta = nombre + id,108 campañas comparten nombre; sin el id se mezclarían en los gráficos,500
+dim_campanas,semántica,etiqueta = nombre + id,199 campañas comparten nombre; sin el id se mezclarían en los gráficos,500
 puente_campana_publicacion,estructural,arreglo 'publicaciones_asociadas' desanidado ($unwind) a tabla puente,Relación muchos-a-muchos campaña-publicación,1487
 dim_campanas,semántica,logro = interacciones reales en la ventana de la campaña / meta (likes ≈ reacciones positivas),Mide el impacto de cada campaña frente a su objetivo. 'compartidos' no existe en los datos: queda como meta sin medición,500
 dim_fecha,estructural,tabla calendario continua,"Inteligencia de tiempo en Power BI (tendencias mensuales, comparaciones)",730

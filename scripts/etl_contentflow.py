@@ -243,7 +243,7 @@ def transformar(df: dict[str, pd.DataFrame]) -> dict[str, pd.DataFrame]:
     k = a_fecha(k, "fecha_inicio", "dim_campanas")
     k = a_fecha(k, "fecha_fin", "dim_campanas")
     k["etiqueta"] = k["nombre"] + " (" + k["campana_id"].str.replace("camp_", "#") + ")"
-    registrar("dim_campanas", "semántica", "etiqueta = nombre + id", f"{len(k) - k['nombre'].nunique()} campañas comparten nombre; sin el id se mezclarían en los gráficos", len(k))
+    registrar("dim_campanas", "semántica", "etiqueta = nombre + id", f"{int(k['nombre'].duplicated(keep=False).sum())} campañas comparten nombre; sin el id se mezclarían en los gráficos", len(k))
     k["duracion_dias"] = (k["fecha_fin"] - k["fecha_inicio"]).dt.days
 
     kp = df["campana_publicacion"].drop_duplicates()
